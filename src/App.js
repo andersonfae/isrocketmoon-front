@@ -7,6 +7,7 @@ import { Profile } from "./pages/Profile";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Credits } from "./pages/Credits";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { Job } from "./pages/Job/index";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/jobs" element={<Job />} />
           <Route
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
