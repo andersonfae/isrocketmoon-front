@@ -11,8 +11,8 @@ export function Signup() {
     email: "",
     location: "",
     typeOfUser: "",
-    passwordHash: "",
-    confirmPasswordHash: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const [img, setImg] = useState("");
@@ -107,17 +107,17 @@ export function Signup() {
       <label htmlFor="formPassword">Senha:</label>
       <input
         id="formPassword"
-        name="passwordHash"
+        name="password"
         type="password"
-        value={form.passwordHash}
+        value={form.password}
         onChange={handleChange}
       />
       <label htmlFor="formConfirmPassword">Confirmação de senha</label>
       <input
         id="formConfirmPassword"
         type="password"
-        name="confirmPasswordHash"
-        value={form.confirmPasswordHash}
+        name="confirmPassword"
+        value={form.confirmPassword}
         onChange={handleChange}
       />
       <button onClick={handleSubmit} type="submit">
