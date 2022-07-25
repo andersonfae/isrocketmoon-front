@@ -6,9 +6,13 @@ export function Signup() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
+    nickname: "",
+    description: "",
     email: "",
-    password: "",
-    confirmPassword: "",
+    location: "",
+    typeOfUser: "",
+    passwordHash: "",
+    confirmPasswordHash: "",
   });
 
   const [img, setImg] = useState("");
@@ -49,7 +53,7 @@ export function Signup() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="formName">Nome:</label>
+      <label htmlFor="formName">Name:</label>
       <input
         id="formName"
         name="name"
@@ -59,7 +63,24 @@ export function Signup() {
       />
       <label htmlFor="formImg">Sua foto de perfil:</label>
       <input type="file" id="formImg" onChange={handleImage} />
-
+      <label htmlFor="formNickname">Nickname:</label>
+      <input
+        id="formNickname"
+        name="nickname"
+        type="text"
+        value={form.nickname}
+        onChange={handleChange}
+      />
+      <label htmlFor="formDescription">
+        Describe yourself in 140 Characters.
+      </label>
+      <input
+        id="formDescription"
+        name="description"
+        type="text"
+        value={form.description}
+        onChange={handleChange}
+      />
       <label htmlFor="formEmail">E-mail:</label>
       <input
         id="formEmail"
@@ -68,23 +89,42 @@ export function Signup() {
         value={form.email}
         onChange={handleChange}
       />
+      <label htmlFor="formLocation">
+        <select id="formLocation">
+          <option>Location</option>
+          <option>North America</option>
+          <option>South America</option>
+          <option>Europe</option>
+          <option>Oceania</option>
+          <option>Asia</option>
+        </select>
+      </label>
+      <label htmlFor="formTypeOfUser">
+        <select id="formTypeOfUser">
+          <option>Type Of User</option>
+          <option>Pilot</option>
+          <option>Owner</option>
+        </select>
+      </label>
       <label htmlFor="formPassword">Senha:</label>
       <input
         id="formPassword"
-        name="password"
+        name="passwordHash"
         type="password"
-        value={form.password}
+        value={form.passwordHash}
         onChange={handleChange}
       />
       <label htmlFor="formConfirmPassword">Confirmação de senha</label>
       <input
         id="formConfirmPassword"
         type="password"
-        name="confirmPassword"
-        value={form.confirmPassword}
+        name="confirmPasswordHash"
+        value={form.confirmPasswordHash}
         onChange={handleChange}
       />
-      <button type="submit">Cadastrar</button>
+      <button onClick={handleSubmit} type="submit">
+        Create Account
+      </button>
     </form>
   );
 }
