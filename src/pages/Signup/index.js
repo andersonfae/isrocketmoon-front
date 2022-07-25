@@ -19,6 +19,7 @@ export function Signup() {
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
+    console.log(form);
   }
 
   function handleImage(e) {
@@ -90,9 +91,9 @@ export function Signup() {
         onChange={handleChange}
       />
       <label htmlFor="formLocation">
-        <select id="formLocation">
-          <option>North America</option>
-          <option>South America</option>
+        <select id="formLocation" onChange={handleChange} name="location">
+          <option value="North America">North America</option>
+          <option value="South America">South America</option>
           <option>Europe</option>
           <option>Oceania</option>
           <option>Asia</option>

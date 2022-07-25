@@ -3,6 +3,7 @@ import { AuthContext } from "../../contexts/authContext";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { Footer } from "../../components/Footer";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -18,7 +19,7 @@ export function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  async function handleSumit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     try {
@@ -35,7 +36,7 @@ export function Login() {
 
   return (
     <div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
-      <form onSubmit={handleSumit} className="space-y-6" action="#">
+      <form onSubmit={handleSubmit} className="space-y-6" action="#">
         <h5 class="text-xl font-medium text-gray-900 dark:text-white">
           Welcome back ;){" "}
         </h5>
@@ -101,10 +102,11 @@ export function Login() {
             to={"/signup"}
             className="text-blue-700 hover:underline dark:text-blue-500"
           >
-            Create account
+            <button onClick={handleSubmit}>Create account</button>
           </Link>
         </div>
       </form>
+      <Footer />
     </div>
   );
 }
