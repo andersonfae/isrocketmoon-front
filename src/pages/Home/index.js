@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Footer } from "../../components/Footer";
 
 export function Home() {
   return (
@@ -7,6 +8,7 @@ export function Home() {
       <Link to={"/signup"}>
         <button>Sign Up</button>
       </Link>
+      <Footer />
     </>
   );
 }
