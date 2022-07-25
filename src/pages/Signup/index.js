@@ -91,7 +91,6 @@ export function Signup() {
       />
       <label htmlFor="formLocation">
         <select id="formLocation">
-          <option>Location</option>
           <option>North America</option>
           <option>South America</option>
           <option>Europe</option>
@@ -101,7 +100,6 @@ export function Signup() {
       </label>
       <label htmlFor="formTypeOfUser">
         <select id="formTypeOfUser">
-          <option>Type Of User</option>
           <option>Pilot</option>
           <option>Owner</option>
         </select>
