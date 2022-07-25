@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CardJob } from "../../components/Cards/CardJobs/CardCreateJob";
 
 export function Home() {
   return (
