@@ -5,7 +5,7 @@ import { Signup } from "./pages/Signup";
 import { AuthContextComponent } from "./contexts/authContext";
 import { Profile } from "./pages/Profile";
 import { ErrorPage } from "./pages/ErrorPage";
-
+import { Credits } from "./pages/Credits";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
           />
-
+          <Route path="/credits" element={<Credits />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AuthContextComponent>
