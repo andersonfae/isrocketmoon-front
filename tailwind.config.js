@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["Michroma"],
-      serif: ["Miriam Libre"],
+      sans: ["Miriam Libre"],
+      serif: ["Michroma"],
     },
   },
   plugins: [],
