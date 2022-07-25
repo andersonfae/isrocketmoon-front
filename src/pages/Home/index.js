@@ -7,7 +7,6 @@ export function Home() {
       <Link to={"/signup"}>
         <button>Sign Up</button>
       </Link>
-      <Footer />
     </>
   );
 }
