@@ -6,6 +6,7 @@ module.exports = {
     fontFamily: {
       sans: ["Miriam Libre"],
       serif: ["Michroma"],
+      logo: ["Karantina"],
     },
   },
   plugins: [],
