@@ -26,7 +26,7 @@ export function Profile() {
     <>
       <h1>{loggedInUser.user.name}</h1>
       <p>{loggedInUser.user.email}</p>
-      <button onClick={handleLogOut}>Sair</button>
+      <button onClick={handleLogOut}>Leave Account</button>
     </>
   );
 }

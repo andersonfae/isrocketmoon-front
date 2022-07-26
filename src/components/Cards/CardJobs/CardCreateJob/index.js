@@ -7,7 +7,7 @@ export function CardJob() {
   const [form, setForm] = useState({
     title: "",
     description: "",
-    price: "",
+    amount: "",
   });
 
   const navigate = useNavigate();
@@ -63,9 +63,9 @@ export function CardJob() {
               />
               <label></label>
               <input
-                type="text"
-                name="price"
-                value={form.price}
+                type="number"
+                name="amount"
+                value={form.amount}
                 onChange={handleChange}
                 placeholder="Price ($)"
               />
