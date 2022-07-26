@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import Logo from "../../images/rocketLogo.png";
 import Moon from "../../images/logo-moon-wobg.svg";
 import { AuthContext } from "../../contexts/authContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -34,10 +34,13 @@ export function Navbar() {
       </a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden bg-black items-center">
-          <button className="flex mx-auto shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded">
+          <Link to={"/signup"}>
             {" "}
-            Sign Up
-          </button>
+            <button className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded mr-16">
+              {" "}
+              Sign Up
+            </button>
+          </Link>
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
@@ -72,13 +75,15 @@ export function Navbar() {
               <li className="border-b border-gray-400 my-8">
                 <a href="/jobs">Jobs</a>
               </li>
-              <li>
+              {loggedInUser ? (
+                <a href="/profile">Your profile</a>
+              ) : (
                 <a href="/login">Sign in</a>
-              </li>
+              )}
               <li className="border-b border-gray-400 my-8">
                 {loggedInUser ? (
                   <a href="/" onClick={handleLogOut}>
-                    Sign Out
+                    Logout
                   </a>
                 ) : (
                   <a href="/signup">Sign Up</a>
@@ -95,21 +100,20 @@ export function Navbar() {
           <li>
             <a href="/jobs">Jobs</a>
           </li>
-          <li>
+          {loggedInUser ? (
+            <a href="/profile">Your profile</a>
+          ) : (
             <a href="/login">Sign in</a>
-          </li>
+          )}
           <li>
             {loggedInUser ? (
-              <a href="/profile">Sign Out</a>
+              <a href="/" onClick={handleLogOut}>
+                Logout
+              </a>
             ) : (
               <a href="/signup">Sign Up</a>
             )}
           </li>
-          {loggedInUser && (
-            <li>
-              <a href="/profile">Your Profile</a>
-            </li>
-          )}
         </ul>
       </nav>
       <style>{`
