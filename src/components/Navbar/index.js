@@ -2,13 +2,19 @@ import { useState, useContext } from "react";
 import Logo from "../../images/rocketLogo.png";
 import Moon from "../../images/logo-moon-wobg.svg";
 import { AuthContext } from "../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 
 export function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const { loggedInUser } = useContext(AuthContext);
 
-  console.log(loggedInUser);
+  const navigate = useNavigate();
+
+  function handleLogOut() {
+    localStorage.removeItem("loggedInUser");
+    navigate("/");
+  }
 
   return (
     <div className="flex items-center justify-between border-b border-gray-400 bg-black text-white pt-8 pl-4 pr-4 pb-9">
@@ -27,8 +33,11 @@ export function Navbar() {
         </span>
       </a>
       <nav>
-        <section className="MOBILE-MENU flex lg:hidden bg-black">
-          <button className="pr-16"> Sign in</button>
+        <section className="MOBILE-MENU flex lg:hidden bg-black items-center">
+          <button className="flex mx-auto shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded">
+            {" "}
+            Sign Up
+          </button>
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
@@ -68,7 +77,9 @@ export function Navbar() {
               </li>
               <li className="border-b border-gray-400 my-8">
                 {loggedInUser ? (
-                  <a href="/profile">Sign Out</a>
+                  <a href="/" onClick={handleLogOut}>
+                    Sign Out
+                  </a>
                 ) : (
                   <a href="/signup">Sign Up</a>
                 )}
