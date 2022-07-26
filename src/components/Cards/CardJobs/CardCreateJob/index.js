@@ -24,9 +24,6 @@ export function CardJob() {
 
     try {
       const response = await api.post("/jobs/createjob", form);
-      setLoggedInUser({ ...response.data });
-
-      localStorage.setItem("loggedInUser", JSON.stringify(response.data));
 
       navigate("/");
     } catch (error) {

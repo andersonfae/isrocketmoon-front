@@ -16,6 +16,10 @@ export function CardEditJob() {
   const { setLoggedInUser } = useContext(AuthContext);
 
   function handleChange(e) {
+    if (e.target.name === "amount") {
+      setForm({ ...form, amount: Number(e.target.value) });
+      return;
+    }
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
@@ -23,17 +27,18 @@ export function CardEditJob() {
     e.preventDefault();
 
     try {
-      const response = await api.patch("/jobs/edit/:jobsId", form);
-      setLoggedInUser({ ...response.data });
+      const clone = { ...form };
 
-      localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+      delete clone._id;
 
-      navigate("/");
+      const response = api.patch("/jobs/edit/:jobsId", clone);
+
+      navigate("/jobs");
     } catch (error) {
       console.log(error);
     }
   }
-
+  console.log(form);
   return (
     <>
       <div className="flex justify-center">
