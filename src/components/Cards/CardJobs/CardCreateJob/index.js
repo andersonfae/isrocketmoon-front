@@ -7,6 +7,7 @@ export function CardJob() {
   const [form, setForm] = useState({
     title: "",
     description: "",
+    game: "",
     amount: "",
   });
 
@@ -23,9 +24,6 @@ export function CardJob() {
 
     try {
       const response = await api.post("/jobs/createjob", form);
-      setLoggedInUser({ ...response.data });
-
-      localStorage.setItem("loggedInUser", JSON.stringify(response.data));
 
       navigate("/");
     } catch (error) {
@@ -45,29 +43,37 @@ export function CardJob() {
               🚀 You are 3 fields away to get a Professional Gamer!
             </p>
             <form onSubmit={handleSubmit}>
-              <label></label>
+              <label>Title for the job</label>
               <input
                 type="text"
                 name="title"
                 value={form.title}
                 onChange={handleChange}
-                placeholder="Title for the job (Ex.: Elo Job twice a week)"
+                placeholder="Ex.: Elo Job twice a week"
               />
-              <label></label>
+              <label>Describe all details for the gamer</label>
               <input
                 type="text"
                 name="description"
                 value={form.description}
                 onChange={handleChange}
-                placeholder="Describe all details for the gamer."
+                placeholder="Describe details here!"
               />
-              <label></label>
+              <label>Game</label>
+              <input
+                type="text"
+                name="game"
+                value={form.game}
+                onChange={handleChange}
+                placeholder="Select your game here!"
+              />
+              <label>Price</label>
               <input
                 type="number"
                 name="amount"
                 value={form.amount}
                 onChange={handleChange}
-                placeholder="Price ($)"
+                placeholder="$"
               />
             </form>
 
