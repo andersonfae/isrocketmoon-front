@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { Footer } from "../../components/Footer";
+import { Navbar } from "../../components/Navbar/index";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -19,6 +21,7 @@ export function Signup() {
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
+    console.log(form);
   }
 
   function handleImage(e) {
@@ -52,77 +55,142 @@ export function Signup() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="formName">Name:</label>
-      <input
-        id="formName"
-        name="name"
-        type="text"
-        value={form.name}
-        onChange={handleChange}
-      />
-      <label htmlFor="formImg">Sua foto de perfil:</label>
-      <input type="file" id="formImg" onChange={handleImage} />
-      <label htmlFor="formNickname">Nickname:</label>
-      <input
-        id="formNickname"
-        name="nickname"
-        type="text"
-        value={form.nickname}
-        onChange={handleChange}
-      />
-      <label htmlFor="formDescription">
-        Describe yourself in 140 Characters.
-      </label>
-      <input
-        id="formDescription"
-        name="description"
-        type="text"
-        value={form.description}
-        onChange={handleChange}
-      />
-      <label htmlFor="formEmail">E-mail:</label>
-      <input
-        id="formEmail"
-        name="email"
-        type="email"
-        value={form.email}
-        onChange={handleChange}
-      />
-      <label htmlFor="formLocation">
-        <select id="formLocation">
-          <option>North America</option>
-          <option>South America</option>
-          <option>Europe</option>
-          <option>Oceania</option>
-          <option>Asia</option>
-        </select>
-      </label>
-      <label htmlFor="formTypeOfUser">
-        <select id="formTypeOfUser">
-          <option>Pilot</option>
-          <option>Owner</option>
-        </select>
-      </label>
-      <label htmlFor="formPassword">Senha:</label>
-      <input
-        id="formPassword"
-        name="password"
-        type="password"
-        value={form.password}
-        onChange={handleChange}
-      />
-      <label htmlFor="formConfirmPassword">Confirmação de senha</label>
-      <input
-        id="formConfirmPassword"
-        type="password"
-        name="confirmPassword"
-        value={form.confirmPassword}
-        onChange={handleChange}
-      />
-      <button onClick={handleSubmit} type="submit">
-        Create Account
-      </button>
-    </form>
+    <>
+      <Navbar />
+      <div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <form onSubmit={handleSubmit} className="space-y-6" action="#">
+          <h5 className="text-4xl font-medium text-gray-900 dark:text-white">
+            Create an account
+          </h5>
+          <div>
+            <label
+              htmlFor="formName"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Name:
+            </label>
+            <input
+              id="formName"
+              name="name"
+              type="text"
+              value={form.name}
+              onChange={handleChange}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              placeholder="John Doe"
+            />
+          </div>
+          <label htmlFor="formImg">Sua foto de perfil:</label>
+          <input type="file" id="formImg" onChange={handleImage} />
+          <label
+            htmlFor="formNickname"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Nickname:
+          </label>
+          <input
+            id="formNickname"
+            name="nickname"
+            type="text"
+            value={form.nickname}
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="johndoe"
+          />
+          <label
+            htmlFor="formDescription"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Describe yourself in 140 Characters.
+          </label>
+          <input
+            id="formDescription"
+            name="description"
+            type="text"
+            value={form.description}
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="Your Description"
+          />
+          <label
+            htmlFor="formEmail"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            E-mail:
+          </label>
+          <input
+            id="formEmail"
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="johndoe@test.com"
+          />
+          <label
+            htmlFor="formLocation"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            <select
+              id="formLocation"
+              onChange={handleChange}
+              name="location"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            >
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
+              <option value="Europe">Europe</option>
+              <option value="Oceania">Oceania</option>
+              <option value="Asia">Asia</option>
+            </select>
+          </label>
+          <label
+            htmlFor="formTypeOfUser"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            <select
+              id="formTypeOfUser"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            >
+              <option value="Pilot">Pilot</option>
+              <option value="Owner">Owner</option>
+            </select>
+          </label>
+          <label
+            htmlFor="formPassword"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Senha:
+          </label>
+          <input
+            id="formPassword"
+            name="password"
+            type="password"
+            value={form.password}
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="••••••••"
+          />
+          <label
+            htmlFor="formConfirmPassword"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Confirmação de senha
+          </label>
+          <input
+            id="formConfirmPassword"
+            type="password"
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+            placeholder="••••••••"
+          />
+          <button onClick={handleSubmit} type="submit">
+            Create Account
+          </button>
+        </form>
+      </div>
+      <Footer />
+    </>
   );
 }

@@ -28,7 +28,7 @@ export function Navbar() {
       </a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden bg-black">
-          <button> Sign in</button>
+          <button className="pr-16"> Sign in</button>
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
