@@ -9,6 +9,7 @@ import { Credits } from "./pages/Credits";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Job } from "./pages/Job/index";
 import { CreateJobPage } from "./pages/Job/Create/index";
+import { EditJobPage } from "./pages/Job/Edit/index";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/jobs" element={<Job />} />
           <Route path="/jobs/createjob" element={<CreateJobPage />} />
+          <Route path="/jobs/edit/:jobsId" element={<EditJobPage />} />
           <Route
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
