@@ -10,6 +10,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Job } from "./pages/Job/index";
 import { CreateJobPage } from "./pages/Job/Create/index";
 import { EditJobPage } from "./pages/Job/Edit/index";
+import { EditProfile } from "./pages/Profile/EditProfile/index";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           <Route
             path="/profile"
             element={<ProtectedRoute component={Profile} />}
+          />
+          <Route
+            path="/user/update-profile/:userId"
+            element={<ProtectedRoute component={EditProfile} />}
           />
           <Route path="/credits" element={<Credits />} />
           <Route path="*" element={<ErrorPage />} />
