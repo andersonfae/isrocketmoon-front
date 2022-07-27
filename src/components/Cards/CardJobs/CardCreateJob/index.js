@@ -23,7 +23,7 @@ export function CardJob() {
     e.preventDefault();
 
     try {
-      const response = await api.post("/jobs/createjob", form);
+      await api.post("/jobs/createjob", { ...form });
 
       navigate("/");
     } catch (error) {
@@ -43,37 +43,45 @@ export function CardJob() {
               🚀 You are 3 fields away to get a Professional Gamer!
             </p>
             <form onSubmit={handleSubmit}>
-              <label>Title for the job</label>
-              <input
-                type="text"
-                name="title"
-                value={form.title}
-                onChange={handleChange}
-                placeholder="Ex.: Elo Job twice a week"
-              />
-              <label>Describe all details for the gamer</label>
-              <input
-                type="text"
-                name="description"
-                value={form.description}
-                onChange={handleChange}
-                placeholder="Describe details here!"
-              />
-              <select className="bg-black text-white text-3xl pt-1.5 mb-9 border-b-2 border-indigo-500">
-                Game
-              </select>
-              <option value={"League of Legends"}>League of Legends</option>
-              <option value={"Counter Strike"}>Counter Strike</option>
-              <option value={"Tibia"}>Tibia</option>
-              <option value={"Dota 2"}>Dota 2</option>
-              <label>Price</label>
-              <input
-                type="number"
-                name="amount"
-                value={form.amount}
-                onChange={handleChange}
-                placeholder="$"
-              />
+              <label>
+                Title for the job
+                <input
+                  type="text"
+                  name="title"
+                  value={form.title}
+                  onChange={handleChange}
+                  placeholder="Ex.: Elo Job twice a week"
+                />
+              </label>
+              <label>
+                Describe all details for the gamer
+                <input
+                  type="text"
+                  name="description"
+                  value={form.description}
+                  onChange={handleChange}
+                  placeholder="Describe details here!"
+                />
+              </label>
+              <label htmlFor="formGame">
+                <select id="formGame" name="game" onChange={handleChange}>
+                  <option value="League of Legends">League of Legends</option>
+                  <option value="Counter Strike">Counter Strike</option>
+                  <option value="Tibia">Tibia</option>
+                  <option value="Dota 2">Dota 2</option>
+                </select>
+              </label>
+
+              <label>
+                Price
+                <input
+                  type="number"
+                  name="amount"
+                  value={form.amount}
+                  onChange={handleChange}
+                  placeholder="$"
+                />
+              </label>
             </form>
 
             <button

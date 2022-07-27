@@ -5,6 +5,8 @@ import { AuthContext } from "../../contexts/authContext";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
 import { Link } from "react-router-dom";
+import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
+import { CardTestemonialsDetail } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsDetail";
 
 export function Profile() {
   const [user, setUser] = useState({
@@ -14,8 +16,41 @@ export function Profile() {
     description: "",
     location: "",
   });
+  const [jobs, setJobs] = useState([
+    {
+      amount: 0,
+      description: "",
+      game: "",
+      owner: "",
+      pilot: { name: "" },
+    },
+    ,
+  ]);
+  console.log(jobs);
+
   const navigate = useNavigate();
-  const { _id } = useParams;
+  // const { _id } = useParams;
+  const { jobsId } = useParams();
+
+  useEffect(() => {
+    async function fetchUser() {
+      const response = await api.get("/review-page");
+      console.log(response.data);
+      setUser(response.data);
+    }
+
+    fetchUser();
+  }, []);
+
+  useEffect(() => {
+    async function fetchJobs() {
+      const response = await api.get("/jobs/myjobs");
+      console.log(response.data);
+      setJobs(response.data);
+    }
+
+    fetchJobs();
+  }, []);
 
   useEffect(() => {
     async function fetchUser() {
@@ -38,6 +73,17 @@ export function Profile() {
       localStorage.removeItem("loggedInUser");
 
       navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleDeleteJob() {
+    try {
+      await api.delete("/jobs/disable-profile");
+      localStorage.removeItem("loggedInUser");
+
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
@@ -87,9 +133,29 @@ export function Profile() {
         <span className=" flex mb-4 py-2.5 px-4 text-white">
           👇🏼 Your jobs on the road
         </span>
+        <div>
+          {jobs.map((e) => {
+            console.log(jobs);
+            return (
+              <div>
+                <CardJobDetail
+                  owner={e.owner}
+                  game={e.game}
+                  description={e.description}
+                  amount={e.amount}
+                  id={e._id}
+                  pilot={e.pilot.name}
+                />
+              </div>
+            );
+          })}
+        </div>
         <span className=" flex mb-4 py-2.5 px-4 text-white">
           👌🏽 Your testimonials
         </span>
+        <div>
+          <CardTestemonialsDetail />
+        </div>
         <Footer />
       </div>
     </>
