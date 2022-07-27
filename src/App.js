@@ -11,6 +11,9 @@ import { Job } from "./pages/Job/index";
 import { CreateJobPage } from "./pages/Job/Create/index";
 import { EditJobPage } from "./pages/Job/Edit/index";
 import { EditProfile } from "./pages/Profile/EditProfile/index";
+import { DetailsJobPage } from "./pages/Job/Details/index";
+import { CreateTestemonialPage } from "./pages/Testemonials/Create/index";
+import { EditTestemonialPage } from "./pages/Testemonials/Edit/index";
 
 function App() {
   return (
@@ -23,6 +26,15 @@ function App() {
           <Route path="/jobs" element={<Job />} />
           <Route path="/jobs/createjob" element={<CreateJobPage />} />
           <Route path="/jobs/edit/:jobsId" element={<EditJobPage />} />
+          <Route path="/jobs/:jobsId" element={<DetailsJobPage />} />
+          <Route
+            path="/reviewpage/create-review-page"
+            element={<CreateTestemonialPage />}
+          />
+          <Route
+            path="/reviewpage/edit/:reviewId"
+            element={<EditTestemonialPage />}
+          />
           <Route
             path="/profile"
             element={<ProtectedRoute component={Profile} />}

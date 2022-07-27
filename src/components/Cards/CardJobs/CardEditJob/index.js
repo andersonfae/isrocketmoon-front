@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,16 @@ export function CardEditJob() {
     game: "",
     amount: "",
   });
+
+  useEffect(() => {
+    async function fetchJobs() {
+      const response = await api.get("/jobs/:jobsId");
+      console.log(response.data);
+      setForm(response.data);
+    }
+
+    fetchJobs();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -31,7 +41,7 @@ export function CardEditJob() {
 
       delete clone._id;
 
-      const response = api.patch("/jobs/edit/:jobsId", clone);
+      api.patch("/jobs/edit/:jobsId", clone);
 
       navigate("/jobs");
     } catch (error) {
@@ -41,7 +51,7 @@ export function CardEditJob() {
   console.log(form);
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex justify-center bg-black">
         <div className="block rounded-lg shadow-lg bg-white max-w-sm text-center">
           <div className="p-6">
             <h5 className="text-gray-900 text-4xl font-medium mb-2">
