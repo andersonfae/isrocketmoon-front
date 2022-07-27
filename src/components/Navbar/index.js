@@ -52,11 +52,12 @@ export function Navbar() {
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             {" "}
             <div
-              className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+              className="CROSS-ICON absolute top-11 right-4 px-5 py-5 rounded-full border-2
+              border-white hover:bg-white text-white ml-4"
               onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
             >
               <svg
-                className="h-8 w-8 text-gray-600"
+                className="h-8 w-8 text-white"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -68,19 +69,21 @@ export function Navbar() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]">
-              <li className="border-b border-gray-400 my-8">
+            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] text-4xl">
+              <li className="pt-14 pb-10">
                 <a href="/">Home</a>
               </li>
-              <li className="border-b border-gray-400 my-8">
+              <li className="pb-10">
                 <a href="/jobs">Jobs</a>
               </li>
-              {loggedInUser ? (
-                <a href="/profile">Your profile</a>
-              ) : (
-                <a href="/login">Sign in</a>
-              )}
-              <li className="border-b border-gray-400 my-8">
+              <spam className="pb-10">
+                {loggedInUser ? (
+                  <a href="/profile">Your profile</a>
+                ) : (
+                  <a href="/login">Sign in</a>
+                )}
+              </spam>
+              <li className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white py-2.5 px-4 rounded">
                 {loggedInUser ? (
                   <a href="/" onClick={handleLogOut}>
                     Logout
@@ -105,7 +108,7 @@ export function Navbar() {
           ) : (
             <a href="/login">Sign in</a>
           )}
-          <li>
+          <li className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white py-2.5 px-4 rounded">
             {loggedInUser ? (
               <a href="/" onClick={handleLogOut}>
                 Logout
