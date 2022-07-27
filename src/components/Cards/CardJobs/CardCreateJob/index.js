@@ -59,14 +59,13 @@ export function CardJob() {
                 onChange={handleChange}
                 placeholder="Describe details here!"
               />
-              <label>Game</label>
-              <input
-                type="text"
-                name="game"
-                value={form.game}
-                onChange={handleChange}
-                placeholder="Select your game here!"
-              />
+              <select className="bg-black text-white text-3xl pt-1.5 mb-9 border-b-2 border-indigo-500">
+                Game
+              </select>
+              <option value={"League of Legends"}>League of Legends</option>
+              <option value={"Counter Strike"}>Counter Strike</option>
+              <option value={"Tibia"}>Tibia</option>
+              <option value={"Dota 2"}>Dota 2</option>
               <label>Price</label>
               <input
                 type="number"
@@ -89,4 +88,16 @@ export function CardJob() {
       </div>
     </>
   );
+}
+
+{
+  /* <section className="bg-black pl-4">
+  <h3 className="text-xl text-white">🔥 Latest jobs on</h3>
+  <select className="bg-black text-white text-3xl pt-1.5 mb-9 border-b-2 border-indigo-500">
+    <option value={"League of Legends"}>League of Legends</option>
+    <option value={"Counter Strike"}>Counter Strike</option>
+    <option value={"Tibia"}>Tibia</option>
+    <option value={"Dota 2"}>Dota 2</option>
+  </select>
+</section>; */
 }
