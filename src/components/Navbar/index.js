@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import Logo from "../../images/rocketLogo.png";
 import Moon from "../../images/logo-moon-wobg.svg";
 import { AuthContext } from "../../contexts/authContext";
 import { useNavigate, Link } from "react-router-dom";
@@ -17,7 +16,7 @@ export function Navbar() {
   }
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 bg-black text-white pt-8 pl-4 pr-4 pb-9">
+    <div className="flex items-center justify-between bg-black text-white pt-8 pl-4 pr-4 pb-9">
       <a href="/">
         <span className="flex items-center text-4xl uppercase font-logo">
           Rocket M{" "}
