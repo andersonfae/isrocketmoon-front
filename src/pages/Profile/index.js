@@ -8,12 +8,26 @@ import { Link } from "react-router-dom";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 
 export function Profile() {
-  // const [user, setUser] = useState({ name: "", email: "" });
+  const [user, setUser] = useState({
+    name: "",
+    nickname: "",
+    typeOfUser: "",
+    description: "",
+    location: "",
+  });
   const navigate = useNavigate();
   // const { _id } = useParams;
   const { jobsId } = useParams();
 
-  const { loggedInUser } = useContext(AuthContext);
+  useEffect(() => {
+    async function fetchUser() {
+      const response = await api.get("/user/profile");
+      console.log(response.data);
+      setUser(response.data);
+    }
+
+    fetchUser();
+  }, []);
 
   const [fetchedData, setFetchedData] = useState([]);
   console.log(fetchedData);
@@ -58,7 +72,7 @@ export function Profile() {
       <Navbar />
       <div className="bg-black">
         <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
-          <Link to={`/user/update-profile/${loggedInUser.user._id}`}>
+          <Link to={`/user/update-profile/${user._id}`}>
             <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
               Edit Profile
             </button>
@@ -73,17 +87,17 @@ export function Profile() {
 
           <div className="text-center px-3 pb-6 pt-2">
             <h3 className="text-black bold font-sans text-xl text-left	">
-              {loggedInUser.user.name}
+              {user.name}
             </h3>
             <p className="mt-2 font-sans font-light text-black text-start text-base">
-              {loggedInUser.user.typeOfUser}
+              {user.typeOfUser}
             </p>
 
             <p className="mt-2 font-sans font-light text-black text-xs text-left -mt-5 mx-14 ">
-              @{loggedInUser.user.nickname}
+              @{user.nickname}
             </p>
             <p className="mt-2 font-sans font-light text-black text-sm text-justify ">
-              {loggedInUser.user.description}
+              {user.description}
             </p>
           </div>
 
