@@ -5,13 +5,26 @@ import { AuthContext } from "../../contexts/authContext";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
 import { Link } from "react-router-dom";
+import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 
 export function Profile() {
   // const [user, setUser] = useState({ name: "", email: "" });
   const navigate = useNavigate();
-  const { _id } = useParams;
+  // const { _id } = useParams;
+  const { jobsId } = useParams();
 
   const { loggedInUser } = useContext(AuthContext);
+
+  const [fetchedData, setFetchedData] = useState([]);
+  console.log(fetchedData);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await api.get(`/user/profile`);
+      setFetchedData(data.data);
+    };
+    getData();
+  }, []);
 
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
@@ -24,6 +37,17 @@ export function Profile() {
       localStorage.removeItem("loggedInUser");
 
       navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleDeleteJob() {
+    try {
+      await api.delete("/jobs/disable-profile");
+      localStorage.removeItem("loggedInUser");
+
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
@@ -73,6 +97,15 @@ export function Profile() {
         <span className=" flex mb-4 py-2.5 px-4 text-white">
           👇🏼 Your jobs on the road
         </span>
+        <div>
+          <CardJobDetail
+            owner={fetchedData.owner}
+            game={fetchedData.game}
+            description={fetchedData.description}
+            amount={fetchedData.amount}
+            id={fetchedData._id}
+          />
+        </div>
         <span className=" flex mb-4 py-2.5 px-4 text-white">
           👌🏽 Your testimonials
         </span>

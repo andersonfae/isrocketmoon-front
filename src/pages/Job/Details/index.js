@@ -6,36 +6,32 @@ import { api } from "../../../api/api";
 import { useParams } from "react-router-dom";
 
 export function DetailsJobPage() {
-  const [jobs, setJobs] = useState({});
   const { jobsId } = useParams();
 
+  const [fetchedData, setFetchedData] = useState([]);
+
   useEffect(() => {
-    async function fetchJobs() {
-      const response = await api.get(`/jobs/${jobsId}`);
-      setJobs(...response.data);
-      console.log(response);
-    }
-    fetchJobs();
+    const getData = async () => {
+      const data = await api.get(`/jobs/${jobsId}`);
+      setFetchedData(data.data);
+    };
+    getData();
   }, []);
+
+  console.log("data: ", fetchedData);
 
   return (
     <>
       <Navbar />
       <div>
-        {/* {jobs.map((currentJob) => {
-          return (
-            <div key={currentJob._id}>
-              <CardJobDetail
-                owner={currentJob.owner}
-                game={currentJob.game}
-                description={currentJob.description}
-                amount={currentJob.amount}
-                id={currentJob._id}
-              />
-            </div>
-          );
-        })} */}
-        <CardJobDetail />
+        {" "}
+        <CardJobDetail
+          owner={fetchedData.owner}
+          game={fetchedData.game}
+          description={fetchedData.description}
+          amount={fetchedData.amount}
+          id={fetchedData._id}
+        />
       </div>
       <Footer />
     </>
