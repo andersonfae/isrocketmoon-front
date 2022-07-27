@@ -20,7 +20,7 @@ export function CardJobDetail(props) {
             <p className="text-gray-700 text-base mb-4">{props.description}</p>
             <h3>Game :{props.game}</h3>
             <h3>Price :{props.amount} </h3>
-            <h3>Requester :{props.owner} </h3>
+            <h3>Requester :{props.pilot} </h3>
 
             <button
               type="button"
