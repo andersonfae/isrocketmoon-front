@@ -1,17 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { api } from "../../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { Footer } from "../../../components/Footer/index";
 import { Navbar } from "../../../components/Navbar/index";
+import { AuthContext } from "../../../contexts/authContext";
 
 export function EditProfile() {
+  const { loggedInUser } = useContext(AuthContext);
+  console.log(loggedInUser);
   const navigate = useNavigate();
   const { _id } = useParams;
   const [form, setForm] = useState({
     name: "",
     nickname: "",
     description: "",
-    email: "",
+
     location: "",
     typeOfUser: "",
     password: "",
@@ -59,14 +62,14 @@ export function EditProfile() {
       const clone = { ...form };
       delete clone._id;
       const imgURL = await handleUpload();
-      api.patch("/user/update-profile", { clone, img: imgURL });
+      await api.patch("/user/update-profile", { ...clone, img: imgURL });
 
       navigate("/profile");
     } catch (error) {
       console.log(error);
     }
   }
-
+  console.log(form);
   return (
     <>
       <Navbar />
@@ -124,21 +127,7 @@ export function EditProfile() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
             placeholder="Your Description"
           />
-          <label
-            htmlFor="formEmail"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            E-mail:
-          </label>
-          <input
-            id="formEmail"
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            placeholder="johndoe@test.com"
-          />
+
           <label
             htmlFor="formLocation"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -170,36 +159,7 @@ export function EditProfile() {
               <option value="Owner">Owner</option>
             </select>
           </label>
-          <label
-            htmlFor="formPassword"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Senha:
-          </label>
-          <input
-            id="formPassword"
-            name="password"
-            type="password"
-            value={form.password}
-            onChange={handleChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            placeholder="••••••••"
-          />
-          <label
-            htmlFor="formConfirmPassword"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-          >
-            Confirmação de senha
-          </label>
-          <input
-            id="formConfirmPassword"
-            type="password"
-            name="confirmPassword"
-            value={form.confirmPassword}
-            onChange={handleChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-            placeholder="••••••••"
-          />
+
           <button onClick={handleSubmit} type="submit">
             Edit Account
           </button>
