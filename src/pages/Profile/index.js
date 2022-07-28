@@ -79,7 +79,7 @@ export function Profile() {
   return (
     <>
       <Navbar />
-      <div className="relative inline-flex flex-col space-y-6 items-start justify-start px-5 pt-24 pb-5 bg-white rounded-lg mt-48 mx-4 mb-7">
+      <div className="relative inline-flex flex-col space-y-6 items-start justify-start px-5 pt-24 pb-5 bg-white rounded-lg mt-48 mx-4 mb-7 w-full">
         <img
           className="rounded-full w-36 h-36 -top-12 left-5 absolute"
           src={Photo}
@@ -110,9 +110,9 @@ export function Profile() {
           Delete account
         </p>
       </div>
-      <span className="text-xl text-white font-serif lg:text-center">
+      <h2 className="text-xl text-white font-serif lg:text-center mx-4 mb-8 mt-14">
         👇🏼 Your jobs on the road
-      </span>
+      </h2>
       <div>
         {jobs.map((e, key) => {
           return (
@@ -141,9 +141,9 @@ export function Profile() {
           );
         })}
       </div>
-      <span className="text-xl text-white font-serif lg:text-center">
+      <h2 className="text-4xl text-white font-serif lg:text-center mx-4 mb-8 mt-20">
         👌🏽 Your testimonials
-      </span>
+      </h2>
       <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
         {review.map((e, key) => {
           return (
