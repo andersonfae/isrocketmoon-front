@@ -79,10 +79,10 @@ export function Home() {
         })}
       </div>
       <SectionTestemonials />
-      <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
+      <div className="">
         {review.map((e, key) => {
           return (
-            <div key={key.toString()}>
+            <div key={key.toString()} className="flex space-y-2.5 flex-col">
               <CardTestemonialsDetail description={e.description} />
             </div>
           );

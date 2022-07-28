@@ -79,7 +79,7 @@ export function Profile() {
   return (
     <>
       <Navbar />
-      <div className="relative inline-flex flex-col space-y-6 items-start justify-start px-5 pt-24 pb-5 bg-white rounded-lg mt-48 mx-4 mb-7 w-full">
+      <div className="relative px-5 pt-24 pb-5 bg-white rounded-lg mt-48 mx-4 mb-7">
         <img
           className="rounded-full w-36 h-36 -top-12 left-5 absolute"
           src={Photo}
@@ -92,7 +92,7 @@ export function Profile() {
                 Edit profile
               </p>
             </Link>
-            <p className="text-xl leading-9">{user.name}</p>
+            <p className="text-xl leading-9 w-full">{user.name}</p>
             <div className="inline-flex space-x-2.5 items-center justify-start">
               <div className="flex items-center justify-center px-2.5 py-1 bg-[#1CBDF9] rounded-full">
                 <p className="text-xs text-white">{user.typeOfUser}</p>
@@ -104,7 +104,7 @@ export function Profile() {
         </div>
 
         <p
-          className="text-xs underline text-center text-red-700"
+          className="text-xs underline text-red-700 mt-12"
           onClick={handleDelete}
         >
           Delete account
@@ -144,7 +144,7 @@ export function Profile() {
       <h2 className="text-4xl text-white font-serif lg:text-center mx-4 mb-8 mt-20">
         👌🏽 Your testimonials
       </h2>
-      <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
+      <div className="">
         {review.map((e, key) => {
           return (
             <div key={key.toString()}>

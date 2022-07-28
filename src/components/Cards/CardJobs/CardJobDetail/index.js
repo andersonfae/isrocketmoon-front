@@ -25,18 +25,19 @@ export function CardJobDetail(props) {
           </div>
           {props.pilot ? <h3>Pilot :{props.pilot} </h3> : null}
         </div>
-        <div className="inline-flex space-x-2.5 items-end justify-between w-full">
-          <div className="flex items-center justify-center px-4 py-2.5 bg-purple-700 rounded">
+        <div className="flex w-full text-center space-x-2">
+          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
             <p className="text-base font-bold text-center text-white uppercase">
-              Details
+              Apply
             </p>
           </div>
-          <Link to={`/jobs/edit/${props.id}`}>
-            <div className="flex items-center justify-center px-4 py-2.5 border rounded border-purple-700">
-              <p className="text-base font-bold text-center text-purple-700 uppercase">
-                Write a review
-              </p>
-            </div>
+          <Link
+            to={`/jobs/edit/${props.id}`}
+            className="flex-auto border rounded border-purple-700 w-full py-2.5"
+          >
+            <span className="text-base font-bold text-center text-purple-700 uppercase">
+              Edit Job
+            </span>
           </Link>
         </div>
       </div>
