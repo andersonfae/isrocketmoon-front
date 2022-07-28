@@ -176,7 +176,7 @@ export function Signup() {
             <button
               onClick={handleSubmit}
               type="submit"
-              className="shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-base py-3 px-16 rounded w-full text-center"
+              className="shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-base py-3 px-16 rounded w-full text-center uppercase"
             >
               Create Account
             </button>
