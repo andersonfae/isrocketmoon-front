@@ -18,7 +18,7 @@ export function Navbar() {
   return (
     <header
       id="header"
-      className="flex items-center justify-between fixed text-white pt-8 pl-4 pr-4 pb-9 z-50 right-0 left-0 top-0"
+      className="flex items-center justify-between fixed text-white px-4 py-4 z-50 right-0 left-0 top-0 bg-black/[.5]"
     >
       <a href="/">
         <span className="flex items-center text-4xl uppercase font-logo">
