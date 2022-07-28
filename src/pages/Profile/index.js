@@ -103,13 +103,19 @@ export function Profile() {
           </div>
           <p className="opacity-60 w-full text-base">{user.description}</p>
         </div>
-
-        <p
-          className="text-xs underline text-red-700 mt-12"
-          onClick={handleDelete}
-        >
-          Delete account
-        </p>
+        <div className="flex text-center space-x-2 justify-center">
+          <Link
+            to="/reviewpage/create-review-page"
+            className="flex-auto bg-purple-700 rounded py-2.5 text-center"
+          >
+            <p className="text-base font-bold text-center text-white uppercase">
+              Post Testimonials
+            </p>
+          </Link>
+          <p className="text-xs underline text-red-700" onClick={handleDelete}>
+            Delete account
+          </p>
+        </div>
       </div>
       <h2 className="text-xl text-white font-serif lg:text-center mx-4 mb-8 mt-14">
         👇🏼 Your jobs on the road
