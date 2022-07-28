@@ -16,6 +16,7 @@ export function Profile() {
     description: "",
     location: "",
   });
+
   const [jobs, setJobs] = useState([
     {
       amount: 0,
@@ -26,20 +27,26 @@ export function Profile() {
     },
     ,
   ]);
-  console.log(jobs);
+
+  const [review, setReview] = useState([
+    {
+      description: "",
+    },
+  ]);
+  console.log(review);
 
   const navigate = useNavigate();
   // const { _id } = useParams;
   const { jobsId } = useParams();
 
   useEffect(() => {
-    async function fetchUser() {
-      const response = await api.get("/review-page");
+    async function fetchReview() {
+      const response = await api.get("/review-page/my-review-page");
       console.log(response.data);
-      setUser(response.data);
+      setReview(response.data);
     }
 
-    fetchUser();
+    fetchReview();
   }, []);
 
   useEffect(() => {
@@ -135,7 +142,6 @@ export function Profile() {
         </span>
         <div>
           {jobs.map((e) => {
-            console.log(jobs);
             return (
               <div>
                 {e.pilot && (
@@ -165,8 +171,20 @@ export function Profile() {
         <span className=" flex mb-4 py-2.5 px-4 text-white">
           👌🏽 Your testimonials
         </span>
-        <div>
-          <CardTestemonialsDetail />
+
+        <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
+          {review.map((e) => {
+            return (
+              <div>
+                <CardTestemonialsDetail description={e.description} />
+              </div>
+            );
+          })}
+          <Link to={`/reviewpage/edit/${user._id}`}>
+            <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
+              Edit Profile
+            </button>
+          </Link>
         </div>
         <Footer />
       </div>
