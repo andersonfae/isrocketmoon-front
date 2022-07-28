@@ -9,12 +9,15 @@ export function Faq() {
   return (
     <div>
       <div>
-        <div className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-32 bg-black text-white">
-          <div className="bg-black text-white">
-            <h4 className="text-4xl pr-9 mr-60 mb-5 mt-5 text-">FAQ</h4>
-          </div>
+        <div
+          className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-32 text-white"
+          id="faq"
+        >
+          <h4 className="text-4xl mb-6 mt-16 text-white font-serif lg:text-center">
+            FAQ
+          </h4>
           <div className="lg:w-1/2 md:w-8/12 sm:w-9/12 w-full">
-            <div className="bg-white shadow rounded p-8">
+            <div className="bg-white shadow rounded p-5">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
@@ -77,7 +80,7 @@ export function Faq() {
                 </ul>
               )}
             </div>
-            <div className="bg-white shadow rounded p-8 mt-8">
+            <div className="bg-white shadow rounded p-5 mt-8">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
@@ -142,7 +145,7 @@ export function Faq() {
                 </ul>
               )}
             </div>
-            <div className="bg-white shadow rounded p-8 mt-8">
+            <div className="bg-white shadow rounded p-5 mt-8">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
@@ -207,7 +210,7 @@ export function Faq() {
                 </ul>
               )}
             </div>
-            <div className="bg-white shadow rounded p-8 mt-8">
+            <div className="bg-white shadow rounded p-5 mt-8">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
