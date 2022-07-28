@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../../../../contexts/authContext";
+import { useState } from "react";
 import { api } from "../../../../api/api";
 import { useNavigate } from "react-router-dom";
 
@@ -10,8 +9,6 @@ export function CardTestemonialCreate() {
 
   const navigate = useNavigate();
 
-  const { setLoggedInUser } = useContext(AuthContext);
-
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
@@ -20,7 +17,7 @@ export function CardTestemonialCreate() {
     e.preventDefault();
 
     try {
-      const response = await api.post("/review-page/create-review-page", form);
+      await api.post("/review-page/create-review-page", form);
 
       navigate("/");
     } catch (error) {
@@ -48,7 +45,7 @@ export function CardTestemonialCreate() {
                 value={form.description}
                 onChange={handleChange}
                 placeholder="Text your review here!"
-                componentType="textarea"
+                componenttype="textarea"
                 rows="5"
                 cols="30"
               />

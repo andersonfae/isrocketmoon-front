@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../../../../contexts/authContext";
+import { useState, useEffect } from "react";
 import { api } from "../../../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -18,11 +17,9 @@ export function CardTestemonialEdit() {
     }
 
     fetchTestemonial();
-  }, []);
+  }, [reviewId]);
 
   const navigate = useNavigate();
-
-  const { setLoggedInUser } = useContext(AuthContext);
 
   function handleChange(e) {
     if (e.target.name === "amount") {
@@ -78,7 +75,7 @@ export function CardTestemonialEdit() {
                 value={form.description}
                 onChange={handleChange}
                 placeholder="Text your review here!"
-                componentType="textarea"
+                componenttype="textarea"
                 rows="5"
                 cols="30"
               />
