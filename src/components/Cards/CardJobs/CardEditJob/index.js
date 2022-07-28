@@ -119,6 +119,7 @@ export function CardEditJob() {
         <div className="flex w-full text-center space-x-2">
           <div
             className="flex-auto bg-purple-700 rounded w-full py-2.5"
+            type="submit"
             onClick={handleSubmit}
           >
             <p className="text-base text-center text-white uppercase font-bold">
