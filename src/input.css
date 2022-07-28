@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black;
+  }
+}
+#hero {
+  @apply overflow-hidden;
+}
+
+#testimonials {
+  background: url("../src/images/shooting-star.png") no-repeat top center;
+}
