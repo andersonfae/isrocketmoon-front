@@ -37,7 +37,7 @@ export function Hero() {
         ></div>
       </div>
 
-      <div class="flex flex-col absolute bottom-5 left-1/2 mt-44 z-40">
+      <div className="flex flex-col absolute bottom-5 left-1/2 mt-44 z-40">
         <button
           type="button"
           className="w-3 h-3 rounded-full bg-white"

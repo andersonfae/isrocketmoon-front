@@ -1,7 +1,6 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api/api";
-import { useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
 import { Link } from "react-router-dom";
@@ -33,11 +32,8 @@ export function Profile() {
       description: "",
     },
   ]);
-  console.log(review);
 
   const navigate = useNavigate();
-  // const { _id } = useParams;
-  const { jobsId } = useParams();
 
   useEffect(() => {
     async function fetchReview() {
@@ -69,11 +65,6 @@ export function Profile() {
     fetchUser();
   }, []);
 
-  function handleLogOut() {
-    localStorage.removeItem("loggedInUser");
-    navigate("/");
-  }
-
   async function handleDelete() {
     try {
       await api.delete("/user/disable-profile");
@@ -92,6 +83,7 @@ export function Profile() {
         <img
           className="rounded-full w-36 h-36 -top-12 left-5 absolute"
           src={Photo}
+          alt="Photoimg"
         />
         <div className="flex flex-col space-y-2.5 items-start justify-start w-full pb-5 border-b border-gray-300">
           <div className="flex flex-col space-y-1 items-start justify-start">
@@ -122,9 +114,9 @@ export function Profile() {
         👇🏼 Your jobs on the road
       </span>
       <div>
-        {jobs.map((e) => {
+        {jobs.map((e, key) => {
           return (
-            <div>
+            <div key={key.toString()}>
               {e.pilot && (
                 <CardJobDetail
                   owner={e.owner}
@@ -153,9 +145,9 @@ export function Profile() {
         👌🏽 Your testimonials
       </span>
       <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
-        {review.map((e) => {
+        {review.map((e, key) => {
           return (
-            <div>
+            <div key={key.toString()}>
               <CardTestemonialsDetail description={e.description} id={e._id} />
             </div>
           );
