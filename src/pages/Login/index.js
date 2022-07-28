@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
+import { Ball } from "../../components/GradientBall";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -99,10 +100,7 @@ export function Login() {
                 to={"/signup"}
                 className="text-blue-700 hover:underline dark:text-blue-500"
               >
-                <button
-                  onClick={handleSubmit}
-                  className="underline text-base text-black"
-                >
+                <button className="underline text-base text-black">
                   Sign up for free
                 </button>
               </Link>
@@ -110,6 +108,7 @@ export function Login() {
           </form>
         </div>
       </div>
+      <Ball />
       <Footer />
     </>
   );

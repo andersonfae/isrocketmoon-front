@@ -5,6 +5,7 @@ import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
 import { Link } from "react-router-dom";
 import Photo from "../../images/upload-photo.png";
+import { Ball } from "../../components/GradientBall";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -186,10 +187,7 @@ export function Signup() {
                 to={"/login"}
                 className="text-blue-700 hover:underline dark:text-blue-500"
               >
-                <button
-                  onClick={handleSubmit}
-                  className="underline text-base text-black"
-                >
+                <button className="underline text-base text-black">
                   Log in
                 </button>
               </Link>
@@ -197,6 +195,7 @@ export function Signup() {
           </form>
         </div>
       </div>
+      <Ball />
       <Footer />
     </>
   );
