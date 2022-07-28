@@ -28,9 +28,9 @@ export function CardTestemonialCreate() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="block rounded-lg shadow-lg bg-white max-w-sm text-center mt-44 mx-4 p-8">
+        <div className="block rounded-lg shadow-lg bg-white text-center max-w-sm mt-44 mx-4 p-8">
           <div className="p-6">
-            <h5 className="text-gray-900 text-4xl font-medium mb-2">
+            <h5 className="text-gray-900 text-4xl font-medium mb-2 font-serif">
               We want to hear you!
             </h5>
             <p className="text-gray-700 text-xs mb-4">
@@ -48,13 +48,14 @@ export function CardTestemonialCreate() {
                 componenttype="textarea"
                 rows="5"
                 cols="30"
+                className="border rounded border-purple-700"
               />
             </form>
 
             <button
               type="submit"
               onClick={handleSubmit}
-              className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className=" inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase border rounded border-purple-700 bg-[#8718E1] mt-10"
             >
               SEND MY REVIEW!
             </button>
