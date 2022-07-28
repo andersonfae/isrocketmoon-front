@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../../../../contexts/authContext";
+import { useState, useEffect } from "react";
 import { api } from "../../../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -22,11 +21,9 @@ export function CardEditJob() {
     }
 
     fetchJobs();
-  }, []);
+  }, [jobsId]);
 
   const navigate = useNavigate();
-
-  const { setLoggedInUser } = useContext(AuthContext);
 
   function handleChange(e) {
     if (e.target.name === "amount") {

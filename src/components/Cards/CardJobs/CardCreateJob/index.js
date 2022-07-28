@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { AuthContext } from "../../../../contexts/authContext";
+import { useState } from "react";
 import { api } from "../../../../api/api";
 import { useNavigate } from "react-router-dom";
 
@@ -12,8 +11,6 @@ export function CardJob() {
   });
 
   const navigate = useNavigate();
-
-  const { setLoggedInUser } = useContext(AuthContext);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -45,8 +42,8 @@ export function CardJob() {
             <input
               className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black "
               type="text"
-              name="description"
-              value={form.description}
+              name="title"
+              value={form.title}
               onChange={handleChange}
               placeholder="Title for the job (Ex.: How to hunt in ...)"
             ></input>
@@ -90,16 +87,4 @@ export function CardJob() {
       </div>
     </>
   );
-}
-
-{
-  /* <section className="bg-black pl-4">
-  <h3 className="text-xl text-white">🔥 Latest jobs on</h3>
-  <select className="bg-black text-white text-3xl pt-1.5 mb-9 border-b-2 border-indigo-500">
-    <option value={"League of Legends"}>League of Legends</option>
-    <option value={"Counter Strike"}>Counter Strike</option>
-    <option value={"Tibia"}>Tibia</option>
-    <option value={"Dota 2"}>Dota 2</option>
-  </select>
-</section>; */
 }
