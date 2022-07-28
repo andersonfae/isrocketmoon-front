@@ -4,6 +4,7 @@ import { Footer } from "../../../components/Footer";
 import { Navbar } from "../../../components/Navbar";
 import { api } from "../../../api/api";
 import { useParams } from "react-router-dom";
+import { Ball } from "../../../components/GradientBall";
 
 export function DetailsJobPage() {
   const { jobsId } = useParams();
@@ -16,7 +17,7 @@ export function DetailsJobPage() {
       setFetchedData(data.data);
     };
     getData();
-  }, []);
+  }, [jobsId]);
 
   console.log("data: ", fetchedData);
 
@@ -33,6 +34,7 @@ export function DetailsJobPage() {
           id={fetchedData._id}
         />
       </div>
+      <Ball />
       <Footer />
     </>
   );
