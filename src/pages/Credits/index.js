@@ -1,3 +1,43 @@
+import { Footer } from "../../components/Footer";
+import { Ball } from "../../components/GradientBall";
+import { Navbar } from "../../components/Navbar";
+
 export function Credits() {
-  return;
+  return (
+    <>
+      <Navbar />
+      <div className="inline-flex flex-col space-y-12 items-start justify-start mt-48 mx-4">
+        <p className="text-4xl leading-10 text-white font-serif">
+          Made in 🚀 104 hours with ☕️ coffee and 🔥 hi-energy.
+        </p>
+        <div className="inline-flex space-x-16 items-start justify-start">
+          <div className="inline-flex flex-col space-y-6 items-start justify-start flex-1">
+            <div className="flex flex-col space-y-1.5 items-start justify-start">
+              <p className="text-base text-right text-white">Anderson Faé</p>
+              <p className="opacity-60 text-base text-right text-white">
+                @andersonfae
+              </p>
+            </div>
+            <div className="flex flex-col space-y-1.5 items-start justify-start">
+              <p className="text-base text-right text-white">Felipe Biermann</p>
+              <p className="opacity-60 text-base text-right text-white">
+                @felipebiermann
+              </p>
+            </div>
+            <div className="flex flex-col space-y-1.5 items-start justify-start">
+              <p className="text-base text-right text-white">Ricado Arena</p>
+              <p className="opacity-60 text-base text-right text-white">
+                @ricardoarena
+              </p>
+            </div>
+          </div>
+          <p className="flex-1 text-xl leading-9 text-white">
+            Magic Developers
+          </p>
+        </div>
+      </div>
+      <Ball />
+      <Footer />
+    </>
+  );
 }
