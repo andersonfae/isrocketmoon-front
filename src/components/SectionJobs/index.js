@@ -1,7 +1,7 @@
 export function Sectionjob() {
   return (
     <>
-      <section className="bg-black pl-4">
+      <section className="pl-4">
         <h3 className="text-xl text-white font-serif lg:text-center">
           🔥 Latest jobs on
         </h3>

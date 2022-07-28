@@ -26,7 +26,6 @@ export function Profile() {
       owner: "",
       pilot: { name: "" },
     },
-    ,
   ]);
 
   const [review, setReview] = useState([
@@ -157,12 +156,7 @@ export function Profile() {
         {review.map((e) => {
           return (
             <div>
-              <CardTestemonialsDetail description={e.description} />
-              <Link to={`/reviewpage/edit/${e._id}`}>
-                <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
-                  Edit Testemonial
-                </button>
-              </Link>
+              <CardTestemonialsDetail description={e.description} id={e._id} />
             </div>
           );
         })}
