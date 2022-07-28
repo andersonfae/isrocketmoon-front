@@ -8,12 +8,10 @@ export function Footer() {
         <div className="text-center pt-6 pb-7 text-xs">
           COPYRIGHT © 2022 Rocket Moon. ALL RIGHTS RESERVED.
         </div>
-        <div className="">
-          <p className="flex justify-center items-center pb-6 text-xs">
-            <Link to={"/credits"}>
-              <p>✨ Credits!</p>
-            </Link>
-          </p>
+        <div className="flex justify-center items-center pb-6 text-xs underline">
+          <Link to={"/credits"}>
+            <span>✨ Credits!</span>
+          </Link>
         </div>
       </footer>
     </>
