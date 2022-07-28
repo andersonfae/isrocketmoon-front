@@ -10,6 +10,7 @@ export function CardEditJob() {
     game: "",
     amount: "",
   });
+  console.log(form);
 
   const { jobsId } = useParams();
 
