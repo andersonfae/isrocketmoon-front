@@ -5,9 +5,11 @@ import Floating from "../../images/floatingBoard.png";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail/index";
 import { CardJobHome } from "../../components/Cards/CardJobs/CardJobHome/index";
 import { api } from "../../api/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../contexts/authContext";
 
 export function Job() {
+  const { loggedInUser } = useContext(AuthContext);
   const [user, setUser] = useState([]);
   const [jobs, setJobs] = useState([
     {
@@ -71,32 +73,66 @@ export function Job() {
         See jobs on{" "}
       </p>
       <div>
-        {jobs.map((e, key) => {
-          return (
-            <div className="my-4" key={key.toString()}>
-              {e.pilot && (
-                <CardJobDetail
-                  owner={e.owner}
-                  game={e.game}
-                  description={e.description}
-                  amount={e.amount}
-                  id={e._id}
-                  pilot={e.pilot.name}
-                />
-              )}
+        {loggedInUser && (
+          <>
+            {jobs.map((e, key) => {
+              return (
+                <div className="my-4" key={key.toString()}>
+                  {e.pilot && (
+                    <CardJobDetail
+                      owner={e.owner}
+                      game={e.game}
+                      description={e.description}
+                      amount={e.amount}
+                      id={e._id}
+                      pilot={e.pilot.name}
+                    />
+                  )}
 
-              {!e.pilot && (
-                <CardJobHome
-                  owner={e.owner}
-                  game={e.game}
-                  description={e.description}
-                  amount={e.amount}
-                  id={e._id}
-                />
-              )}
-            </div>
-          );
-        })}
+                  {!e.pilot && (
+                    <CardJobHome
+                      owner={e.owner}
+                      game={e.game}
+                      description={e.description}
+                      amount={e.amount}
+                      id={e._id}
+                    />
+                  )}
+                </div>
+              );
+            })}
+            {!loggedInUser && (
+              <>
+                {jobs.map((e, key) => {
+                  return (
+                    <div className="my-4" key={key.toString()}>
+                      {e.pilot && (
+                        <CardJobDetail
+                          owner={e.owner}
+                          game={e.game}
+                          description={e.description}
+                          amount={e.amount}
+                          id={e._id}
+                          pilot={e.pilot.name}
+                        />
+                      )}
+
+                      {!e.pilot && (
+                        <CardJobHome
+                          owner={e.owner}
+                          game={e.game}
+                          description={e.description}
+                          amount={e.amount}
+                          id={e._id}
+                        />
+                      )}
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </>
+        )}
       </div>
       <Ball />
       <Footer />
