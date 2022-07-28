@@ -9,7 +9,7 @@ export function EditProfile() {
   const { loggedInUser } = useContext(AuthContext);
   console.log(loggedInUser);
   const navigate = useNavigate();
-  const { _id } = useParams;
+  
   const [form, setForm] = useState({
     name: "",
     nickname: "",
