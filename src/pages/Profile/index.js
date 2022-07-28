@@ -86,17 +86,6 @@ export function Profile() {
     }
   }
 
-  async function handleDeleteJob() {
-    try {
-      await api.delete("/jobs/disable-profile");
-      localStorage.removeItem("loggedInUser");
-
-      navigate("/profile");
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
     <>
       <Navbar />
@@ -177,7 +166,61 @@ export function Profile() {
           <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
             Edit Profile
           </button>
-        </Link>
+
+        </div>
+        <span className=" flex mb-4 py-2.5 px-4 text-white">
+          👇🏼 Your jobs on the road
+        </span>
+        <div>
+          {jobs.map((e) => {
+            return (
+              <div>
+                {e.pilot && (
+                  <CardJobDetail
+                    owner={e.owner}
+                    game={e.game}
+                    description={e.description}
+                    amount={e.amount}
+                    id={e._id}
+                    pilot={e.pilot.name}
+                  />
+                )}
+
+                {!e.pilot && (
+                  <CardJobDetail
+                    owner={e.owner}
+                    game={e.game}
+                    description={e.description}
+                    amount={e.amount}
+                    id={e._id}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <span className=" flex mb-4 py-2.5 px-4 text-white">
+          👌🏽 Your testimonials
+        </span>
+
+        <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
+          {review.map((e) => {
+            return (
+              <div>
+                <CardTestemonialsDetail description={e.description} />
+                <Link to={`/reviewpage/edit/${e._id}`}>
+                  <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
+                    Edit Profile
+                  </button>
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+        <Footer />
+
+       
+
       </div>
       <Footer />
     </>

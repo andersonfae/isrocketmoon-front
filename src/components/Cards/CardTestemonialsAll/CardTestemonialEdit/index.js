@@ -1,16 +1,18 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function CardTestemonialEdit() {
   const [form, setForm] = useState({
     description: "",
   });
+  console.log(form);
+  const { reviewId } = useParams();
 
   useEffect(() => {
     async function fetchTestemonial() {
-      const response = await api.get("/review-page/:reviewId");
+      const response = await api.get(`/review-page/${reviewId}`);
       console.log(response.data);
       setForm(response.data);
     }
@@ -38,7 +40,7 @@ export function CardTestemonialEdit() {
 
       delete clone._id;
 
-      api.patch("/review-page/edit/:reviewId", clone);
+      await api.patch(`/review-page/edit/${reviewId}`, clone);
 
       navigate("/profile");
     } catch (error) {

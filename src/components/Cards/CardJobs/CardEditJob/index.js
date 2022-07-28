@@ -10,6 +10,7 @@ export function CardEditJob() {
     game: "",
     amount: "",
   });
+  console.log(form);
 
   const { jobsId } = useParams();
 
@@ -46,6 +47,16 @@ export function CardEditJob() {
       await api.patch(`/jobs/edit/${jobsId}`, clone);
 
       navigate("/jobs");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleDeleteJob() {
+    try {
+      await api.delete(`/jobs/delete/${jobsId}`);
+
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
@@ -103,6 +114,13 @@ export function CardEditJob() {
               className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               Edit the job!
+            </button>
+            <button
+              type="submit"
+              onClick={handleDeleteJob}
+              className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            >
+              Delete job!
             </button>
           </div>
         </div>

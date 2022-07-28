@@ -22,18 +22,15 @@ export function Home() {
     ,
   ]);
 
-
   const [review, setReview] = useState([
     {
       description: "",
     },
   ]);
 
-
-
   useEffect(() => {
     async function fetchJobs() {
-      const response = await api.get("/jobs/myjobs");
+      const response = await api.get("/jobs/alljobs");
       console.log(response.data);
       setJobs(response.data);
     }
@@ -41,18 +38,15 @@ export function Home() {
     fetchJobs();
   }, []);
 
-
   useEffect(() => {
     async function fetchReview() {
-      const response = await api.get("/review-page/my-review-page");
+      const response = await api.get("/review-page/allreviews");
       console.log(response.data);
       setReview(response.data);
     }
 
     fetchReview();
   }, []);
-
-
 
   return (
     <>
