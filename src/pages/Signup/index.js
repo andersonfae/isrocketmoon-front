@@ -59,7 +59,7 @@ export function Signup() {
   return (
     <>
       <Navbar />
-      <div className="bg-black pb-12 px-4">
+      <div className="pb-12 px-4">
         <div className="p-8 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700 mt-48">
           <form onSubmit={handleSubmit} className="space-y-6" action="#">
             <h5 className="text-4xl text-black font-serif mb-8">

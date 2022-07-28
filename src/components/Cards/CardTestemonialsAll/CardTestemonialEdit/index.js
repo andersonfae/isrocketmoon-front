@@ -57,7 +57,7 @@ export function CardTestemonialEdit() {
 
   return (
     <>
-      <div className="flex justify-center bg-black">
+      <div className="flex justify-center">
         <div className="block rounded-lg shadow-lg bg-white max-w-sm mt-48 mx-4">
           <div className="p-6">
             <h5 className="text-gray-900 text-4xl font-medium mb-2">
