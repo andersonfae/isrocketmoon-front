@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 import { CardTestemonialsDetail } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsDetail";
 import Photo from "../../images/upload-photo.png";
+import { Ball } from "../../components/GradientBall";
 
 export function Profile() {
   const [user, setUser] = useState({
@@ -153,7 +154,7 @@ export function Profile() {
           );
         })}
       </div>
-
+      <Ball />
       <Footer />
     </>
   );
