@@ -38,7 +38,7 @@ export function Navbar() {
         <section className="MOBILE-MENU flex lg:hidden items-center">
           <Link to={"/signup"}>
             {" "}
-            <button className="flex shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded mr-16">
+            <button className="flex shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded mr-16 uppercase">
               {" "}
               Sign Up
             </button>
@@ -82,7 +82,7 @@ export function Navbar() {
                 {loggedInUser ? (
                   <a href="/profile">Your profile</a>
                 ) : (
-                  <a href="/login">Sign in</a>
+                  <a href="/login">Login</a>
                 )}
               </spam>
               <li className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white py-2.5 px-4 rounded">
