@@ -15,19 +15,28 @@ export function Credits() {
             <div className="flex flex-col space-y-1.5 items-start justify-start">
               <p className="text-base text-right text-white">Anderson Faé</p>
               <p className="opacity-60 text-base text-right text-white">
-                <a href="https://github.com/andersonfae">@andersonfae</a>
+                <a href="https://github.com/andersonfae" className="underline">
+                  @andersonfae
+                </a>
               </p>
             </div>
             <div className="flex flex-col space-y-1.5 items-start justify-start">
               <p className="text-base text-right text-white">Felipe Biermann</p>
               <p className="opacity-60 text-base text-right text-white">
-                <a href="https://github.com/felipebiermann">@felipebiermann</a>
+                <a
+                  href="https://github.com/felipebiermann"
+                  className="underline"
+                >
+                  @felipebiermann
+                </a>
               </p>
             </div>
             <div className="flex flex-col space-y-1.5 items-start justify-start">
               <p className="text-base text-right text-white">Ricado Arena</p>
               <p className="opacity-60 text-base text-right text-white">
-                <a href="https://github.com/RicardoArena">@ricardoarena</a>
+                <a href="https://github.com/RicardoArena" className="underline">
+                  @ricardoarena
+                </a>
               </p>
             </div>
           </div>
