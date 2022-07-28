@@ -31,7 +31,7 @@ export function Faq() {
                   {box1 ? (
                     <svg
                       role="button"
-                      ariaLabel="close dropdown"
+                      aria-label="close dropdown"
                       width="10"
                       height="6"
                       viewBox="0 0 10 6"
@@ -50,7 +50,7 @@ export function Faq() {
                     <svg
                       width="10"
                       role="button"
-                      ariaLabel="open dropdown"
+                      aria-label="open dropdown"
                       height="6"
                       viewBox="0 0 10 6"
                       fill="none"
@@ -97,7 +97,7 @@ export function Faq() {
                   {box2 ? (
                     <svg
                       role="button"
-                      ariaLabel="close dropdown"
+                      aria-label="close dropdown"
                       width="10"
                       height="6"
                       viewBox="0 0 10 6"
@@ -116,7 +116,7 @@ export function Faq() {
                     <svg
                       width="10"
                       role="button"
-                      ariaLabel="open dropdown"
+                      aria-label="open dropdown"
                       height="6"
                       viewBox="0 0 10 6"
                       fill="none"
@@ -156,13 +156,13 @@ export function Faq() {
                   onClick={() => {
                     setBox3(!box3);
                   }}
-                  dataMenu
+                  datamenu="true"
                   className="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer"
                 >
                   {box3 ? (
                     <svg
                       role="button"
-                      ariaLabel="close dropdown"
+                      aria-label="close dropdown"
                       width="10"
                       height="6"
                       viewBox="0 0 10 6"
@@ -181,7 +181,7 @@ export function Faq() {
                     <svg
                       width="10"
                       role="button"
-                      ariaLabel="open dropdown"
+                      aria-label="open dropdown"
                       height="6"
                       viewBox="0 0 10 6"
                       fill="none"
@@ -219,13 +219,13 @@ export function Faq() {
                 </div>
                 <button
                   onClick={() => setBox4(!box4)}
-                  dataMenu
+                  datamenu="true"
                   className="focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 ring-offset-white cursor-pointer"
                 >
                   {box4 ? (
                     <svg
                       role="button"
-                      ariaLabel="close dropdown"
+                      aria-label="close dropdown"
                       width="10"
                       height="6"
                       viewBox="0 0 10 6"
@@ -244,7 +244,7 @@ export function Faq() {
                     <svg
                       width="10"
                       role="button"
-                      ariaLabel="open dropdown"
+                      aria-label="open dropdown"
                       height="6"
                       viewBox="0 0 10 6"
                       fill="none"

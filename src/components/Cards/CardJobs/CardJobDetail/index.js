@@ -1,12 +1,6 @@
-import { useEffect, useState, useContext } from "react";
-import { api } from "../../../../api/api";
-import { CardJob } from "../CardCreateJob/index";
-import { AuthContext } from "../../../../contexts/authContext";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function CardJobDetail(props) {
-  const { loggedInUser } = useContext(AuthContext);
-
   return (
     <>
       <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4">

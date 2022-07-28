@@ -78,13 +78,13 @@ export function Navbar() {
               <li className="pb-10">
                 <a href="/jobs">Jobs</a>
               </li>
-              <spam className="pb-10">
+              <span className="pb-10">
                 {loggedInUser ? (
                   <a href="/profile">Your profile</a>
                 ) : (
                   <a href="/login">Login</a>
                 )}
-              </spam>
+              </span>
               <li className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white py-2.5 px-4 rounded">
                 {loggedInUser ? (
                   <a href="/" onClick={handleLogOut}>

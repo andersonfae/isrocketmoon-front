@@ -1,10 +1,6 @@
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
-import { AuthContext } from "../../../../contexts/authContext";
+import { Link } from "react-router-dom";
 
 export function CardTestemonialsDetail(props) {
-  const { loggedInUser } = useContext(AuthContext);
-
   return (
     <>
       <div className="flex justify-center bg-black">

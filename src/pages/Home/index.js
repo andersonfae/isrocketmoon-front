@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 import { Navbar } from "../../components/Navbar";
@@ -19,7 +18,6 @@ export function Home() {
       owner: "",
       pilot: { name: "" },
     },
-    ,
   ]);
 
   const [review, setReview] = useState([
@@ -34,7 +32,6 @@ export function Home() {
       console.log(response.data);
       setJobs(response.data);
     }
-
     fetchJobs();
   }, []);
 
@@ -54,9 +51,9 @@ export function Home() {
       <Hero />
       <Sectionjob />
       <div>
-        {jobs.map((e) => {
+        {jobs.map((e, key) => {
           return (
-            <div>
+            <div key={key.toString()}>
               {e.pilot && (
                 <CardJobDetail
                   owner={e.owner}
@@ -83,9 +80,9 @@ export function Home() {
       </div>
       <SectionTestemonials />
       <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
-        {review.map((e) => {
+        {review.map((e, key) => {
           return (
-            <div>
+            <div key={key.toString()}>
               <CardTestemonialsDetail description={e.description} />
             </div>
           );
