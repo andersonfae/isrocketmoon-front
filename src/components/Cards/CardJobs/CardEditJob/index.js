@@ -64,65 +64,74 @@ export function CardEditJob() {
   console.log(form);
   return (
     <>
-      <div className="flex justify-center bg-black">
-        <div className="block rounded-lg shadow-lg bg-white max-w-sm text-center">
-          <div className="p-6">
-            <h5 className="text-gray-900 text-4xl font-medium mb-2">
-              Edit your Job
-            </h5>
-            <p className="text-gray-700 text-xs mb-4">
-              🚀 You are 3 fields away to get a Professional Gamer!!
-            </p>
-            <form onSubmit={handleSubmit}>
-              <label>Title for the job</label>
+      <div className="flex flex-col space-y-8 items-center justify-start mx-4 p-8 bg-white rounded mt-48">
+        <div className="flex flex-col space-y-8 items-start justify-start w-full">
+          <p className="w-full text-xl leading-9 text-gray-900 font-serif">
+            Editing PROPS HERE TITLE
+          </p>
+          <div className="flex flex-col space-y-5 items-start justify-start w-full">
+            <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
+              type="text"
+              name="title"
+              value={form.title}
+              onChange={handleChange}
+              placeholder="Describe your job here"
+            ></input>
+            <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
+              type="text"
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Don’t forget to be a good person."
+            ></input>
+            <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
+              type="text"
+              name="game"
+              value={form.game}
+              onChange={handleChange}
+              placeholder="Select your game here!"
+            ></input>
+            {/* <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
+              type="number"
+              name="amount"
+              value={form.amount}
+              onChange={handleChange}
+              placeholder="$30.00"
+            ></input> */}
+            <div className="inline-flex space-x-2.5 items-start justify-start w-80 py-2.5 w-full">
+              <p className="opacity-60 w-5 text-base text-gray-900 pt-3">$</p>
               <input
-                type="text"
-                name="title"
-                value={form.title}
-                onChange={handleChange}
-                placeholder="Ex.: Elo Job twice a week"
-              />
-              <label>Describe all details for the gamer</label>
-              <input
-                type="text"
-                name="description"
-                value={form.description}
-                onChange={handleChange}
-                placeholder="Describe details here!"
-              />
-              <label>Game</label>
-              <input
-                type="text"
-                name="game"
-                value={form.game}
-                onChange={handleChange}
-                placeholder="Select your game here!"
-              />
-              <label>Price</label>
-              <input
+                className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
                 type="number"
                 name="amount"
                 value={form.amount}
                 onChange={handleChange}
-                placeholder="$"
-              />
-            </form>
-
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              Edit the job!
-            </button>
-            <button
-              type="submit"
-              onClick={handleDeleteJob}
-              className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              Delete job!
-            </button>
+                placeholder="$30.00"
+              ></input>
+              <p className="flex-1 text-base text-gray-900"></p>
+            </div>
           </div>
+        </div>
+        <div className="flex w-full text-center space-x-2">
+          <div
+            className="flex-auto bg-purple-700 rounded w-full py-2.5"
+            onClick={handleSubmit}
+          >
+            <p className="text-base text-center text-white uppercase font-bold">
+              Edit the Job
+            </p>
+          </div>
+          <p
+            type="submit"
+            onClick={handleDeleteJob}
+            className="flex-auto w-full py-2.5 text-xs underline text-red-700"
+          >
+            Delete
+          </p>
         </div>
       </div>
     </>

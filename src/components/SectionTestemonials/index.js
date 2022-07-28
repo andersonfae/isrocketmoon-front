@@ -1,5 +1,3 @@
-import Star from "../../images/shooting-star.png";
-
 export function SectionTestemonials() {
   return (
     <>
