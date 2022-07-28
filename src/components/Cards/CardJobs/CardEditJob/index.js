@@ -1,7 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 export function CardEditJob() {
   const [form, setForm] = useState({
     title: "",
@@ -9,17 +10,21 @@ export function CardEditJob() {
     game: "",
     amount: "",
   });
-  const { jobsId } = useParams();
+
   useEffect(() => {
     async function fetchJobs() {
-      const response = await api.get(`/jobs/${jobsId}`);
+      const response = await api.get("/jobs/:jobsId");
       console.log(response.data);
       setForm(response.data);
     }
+
     fetchJobs();
   }, []);
+
   const navigate = useNavigate();
+
   const { setLoggedInUser } = useContext(AuthContext);
+
   function handleChange(e) {
     if (e.target.name === "amount") {
       setForm({ ...form, amount: Number(e.target.value) });
@@ -27,12 +32,17 @@ export function CardEditJob() {
     }
     setForm({ ...form, [e.target.name]: e.target.value });
   }
+
   async function handleSubmit(e) {
     e.preventDefault();
+
     try {
       const clone = { ...form };
+
       delete clone._id;
-      await api.patch(`/jobs/edit/${jobsId}`, clone);
+
+      api.patch("/jobs/edit/:jobsId", clone);
+
       navigate("/jobs");
     } catch (error) {
       console.log(error);
@@ -48,7 +58,7 @@ export function CardEditJob() {
               Edit your Job
             </h5>
             <p className="text-gray-700 text-xs mb-4">
-              :foguete: You are 3 fields away to get a Professional Gamer!
+              🚀 You are 3 fields away to get a Professional Gamer!
             </p>
             <form onSubmit={handleSubmit}>
               <label>Title for the job</label>
@@ -84,6 +94,7 @@ export function CardEditJob() {
                 placeholder="$"
               />
             </form>
+
             <button
               type="submit"
               onClick={handleSubmit}
