@@ -33,64 +33,58 @@ export function CardJob() {
 
   return (
     <>
-      <div className="flex justify-center">
-        <div className="block rounded-lg shadow-lg bg-white max-w-sm text-center">
-          <div className="p-6">
-            <h5 className="text-gray-900 text-4xl font-medium mb-2">
-              Post a Job
-            </h5>
-            <p className="text-gray-700 text-xs mb-4">
-              🚀 You are 3 fields away to get a Professional Gamer!
-            </p>
-            <form onSubmit={handleSubmit}>
-              <label>
-                Title for the job
-                <input
-                  type="text"
-                  name="title"
-                  value={form.title}
-                  onChange={handleChange}
-                  placeholder="Ex.: Elo Job twice a week"
-                />
-              </label>
-              <label>
-                Describe all details for the gamer
-                <input
-                  type="text"
-                  name="description"
-                  value={form.description}
-                  onChange={handleChange}
-                  placeholder="Describe details here!"
-                />
-              </label>
-              <label htmlFor="formGame">
-                <select id="formGame" name="game" onChange={handleChange}>
-                  <option value="League of Legends">League of Legends</option>
-                  <option value="Counter Strike">Counter Strike</option>
-                  <option value="Tibia">Tibia</option>
-                  <option value="Dota 2">Dota 2</option>
-                </select>
-              </label>
-
-              <label>
-                Price
-                <input
-                  type="number"
-                  name="amount"
-                  value={form.amount}
-                  onChange={handleChange}
-                  placeholder="$"
-                />
-              </label>
-            </form>
-
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
+      <div className="inline-flex flex-col space-y-8 items-center justify-start p-8 bg-white rounded mt-48 mx-4">
+        <div className="flex flex-col space-y-8 items-start justify-start w-full">
+          <p className="w-full text-4xl leading-9 text-gray-900 font-serif">
+            Post a job
+          </p>
+          <p className="text-xs text-gray-900">
+            🚀 You are 3 fields away to get a Professional Gamer!
+          </p>
+          <div className="flex flex-col space-y-5 w-full">
+            <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black "
+              type="text"
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Title for the job (Ex.: How to hunt in ...)"
+            ></input>
+            <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
+              type="text"
+              name="description"
+              value={form.description}
+              onChange={handleChange}
+              placeholder="Describe all details for the gamer."
+            ></input>
+            <label htmlFor="formGame">
+              <select id="formGame" name="game" onChange={handleChange}>
+                <option value="League of Legends">League of Legends</option>
+                <option value="Counter Strike">Counter Strike</option>
+                <option value="Tibia">Tibia</option>
+                <option value="Dota 2">Dota 2</option>
+              </select>
+            </label>
+            <input
+              className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
+              type="number"
+              name="amount"
+              value={form.amount}
+              onChange={handleChange}
+              placeholder="Price ($)"
+            ></input>
+          </div>
+        </div>
+        <div
+          className="inline-flex space-x-2.5 items-end justify-start w-full"
+          type="submit"
+          onClick={handleSubmit}
+        >
+          <div className="flex items-center justify-center flex-1 px-4 py-2.5 bg-purple-700 rounded">
+            <p className="text-base font-bold text-center text-white uppercase">
               SEND TO THE MOON!
-            </button>
+            </p>
           </div>
         </div>
       </div>

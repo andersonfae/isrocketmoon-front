@@ -16,7 +16,7 @@ export function Faq() {
           <h4 className="text-4xl mb-6 mt-16 text-white font-serif lg:text-center">
             FAQ
           </h4>
-          <div className="lg:w-1/2 md:w-8/12 sm:w-9/12 w-full">
+          <div className="lg:w-1/2 md:w-8/12 sm:w-9/12 space-y-4 w-full">
             <div className="bg-white shadow rounded p-5">
               <div className="flex items-center justify-between">
                 <div>

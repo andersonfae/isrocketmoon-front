@@ -2,7 +2,7 @@ export function Sectionjob() {
   return (
     <>
       <section className="pl-4">
-        <h3 className="text-xl text-white font-serif lg:text-center">
+        <h3 className="text-xl text-white font-serif lg:text-center mb-9 mt-16">
           🔥 Latest jobs on
         </h3>
         {/* <select className="bg-black text-white text-3xl pt-1.5 mb-9 border-b-2 border-indigo-500 lg:text-center margin-auto">
