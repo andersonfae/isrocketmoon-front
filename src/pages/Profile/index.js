@@ -138,14 +138,26 @@ export function Profile() {
             console.log(jobs);
             return (
               <div>
-                <CardJobDetail
-                  owner={e.owner}
-                  game={e.game}
-                  description={e.description}
-                  amount={e.amount}
-                  id={e._id}
-                  pilot={e.pilot.name}
-                />
+                {e.pilot && (
+                  <CardJobDetail
+                    owner={e.owner}
+                    game={e.game}
+                    description={e.description}
+                    amount={e.amount}
+                    id={e._id}
+                    pilot={e.pilot.name}
+                  />
+                )}
+
+                {!e.pilot && (
+                  <CardJobDetail
+                    owner={e.owner}
+                    game={e.game}
+                    description={e.description}
+                    amount={e.amount}
+                    id={e._id}
+                  />
+                )}
               </div>
             );
           })}

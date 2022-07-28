@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function CardEditJob() {
   const [form, setForm] = useState({
@@ -11,9 +11,11 @@ export function CardEditJob() {
     amount: "",
   });
 
+  const { jobsId } = useParams();
+
   useEffect(() => {
     async function fetchJobs() {
-      const response = await api.get("/jobs/:jobsId");
+      const response = await api.get(`/jobs/${jobsId}`);
       console.log(response.data);
       setForm(response.data);
     }
@@ -41,7 +43,7 @@ export function CardEditJob() {
 
       delete clone._id;
 
-      api.patch("/jobs/edit/:jobsId", clone);
+      await api.patch(`/jobs/edit/${jobsId}`, clone);
 
       navigate("/jobs");
     } catch (error) {
