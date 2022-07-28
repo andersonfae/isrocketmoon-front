@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 import { Navbar } from "../../components/Navbar";
@@ -9,8 +9,11 @@ import { SectionTestemonials } from "../../components/SectionTestemonials";
 import { Faq } from "../../components/FAQ/index";
 import { CardTestemonialsHome } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsHome/index";
 import { CardJobHome } from "../../components/Cards/CardJobs/CardJobHome";
+import { AuthContext } from "../../contexts/authContext";
 
 export function Home() {
+  const { loggedInUser } = useContext(AuthContext);
+
   const [jobs, setJobs] = useState([
     {
       amount: 0,
@@ -52,38 +55,61 @@ export function Home() {
       <Hero />
       <Sectionjob />
       <div>
-        {jobs.map((e, key) => {
-          return (
-            <div key={key.toString()}>
-              {e.pilot && (
-                <CardJobDetail
-                  owner={e.owner}
-                  game={e.game}
-                  description={e.description}
-                  amount={e.amount}
-                  id={e._id}
-                  pilot={e.pilot.name}
-                />
-              )}
-
-              {!e.pilot && (
-                <CardJobHome
-                  owner={e.owner}
-                  game={e.game}
-                  description={e.description}
-                  amount={e.amount}
-                  id={e._id}
-                />
-              )}
-            </div>
-          );
-        })}
+        {loggedInUser && (
+          <>
+            {jobs
+              .filter((currentJob) => {
+                return !currentJob.pilot;
+              })
+              .map((e, key) => {
+                console.log(jobs);
+                return (
+                  <div className="my-4" key={key.toString()}>
+                    <CardJobHome
+                      owner={e.owner}
+                      game={e.game}
+                      description={e.description}
+                      amount={e.amount}
+                      id={e._id}
+                    />
+                  </div>
+                );
+              })
+              .slice(0, 5)}
+          </>
+        )}
+        {!loggedInUser && (
+          <>
+            {jobs
+              .filter((currentJob) => {
+                return !currentJob.pilot;
+              })
+              .map((e, key) => {
+                console.log(jobs);
+                return (
+                  <div className="my-4" key={key.toString()}>
+                    <CardJobDetail
+                      owner={e.owner}
+                      game={e.game}
+                      description={e.description}
+                      amount={e.amount}
+                      id={e._id}
+                    />
+                  </div>
+                );
+              })
+              .slice(0, 5)}
+          </>
+        )}
       </div>
       <SectionTestemonials />
-      <div className="">
+      <div>
         {review.map((e, key) => {
           return (
-            <div key={key.toString()} className="flex space-y-2.5 flex-col">
+            <div
+              key={key.toString()}
+              className="flex space-y-2.5 flex-col my-4"
+            >
               <CardTestemonialsHome description={e.description} />
             </div>
           );
