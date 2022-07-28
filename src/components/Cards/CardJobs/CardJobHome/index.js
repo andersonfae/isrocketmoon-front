@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../../contexts/authContext";
+import { api } from "../../../../api/api";
+
 export function CardJobHome(props) {
+  const { loggedInUser } = useContext(AuthContext);
+  console.log(loggedInUser);
   return (
     <>
       <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4">
@@ -21,13 +27,20 @@ export function CardJobHome(props) {
             </p>
             <p className="flex-1 text-base text-gray-900">${props.amount}</p>
           </div>
-          {props.pilot ? <h3>Pilot :{props.pilot} </h3> : null}
         </div>
-        <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
-          <p className="text-base font-bold text-center text-white uppercase">
-            Apply
-          </p>
-        </div>
+
+        {loggedInUser.user.typeOfUser !== "Owner" && (
+          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
+            <button
+              onClick={async () => {
+                await api.get(`/jobs/pilot/${props.id}`);
+              }}
+              className="text-base font-bold text-center text-white uppercase"
+            >
+              Apply
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
