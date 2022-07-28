@@ -8,6 +8,7 @@ import { Hero } from "../Hero";
 import { Sectionjob } from "../../components/SectionJobs";
 import { SectionTestemonials } from "../../components/SectionTestemonials";
 import { Faq } from "../../components/FAQ/index";
+import { CardTestemonialsDetail } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsDetail";
 
 export function Home() {
   const [jobs, setJobs] = useState([
@@ -21,6 +22,15 @@ export function Home() {
     ,
   ]);
 
+
+  const [review, setReview] = useState([
+    {
+      description: "",
+    },
+  ]);
+
+
+
   useEffect(() => {
     async function fetchJobs() {
       const response = await api.get("/jobs/myjobs");
@@ -30,6 +40,19 @@ export function Home() {
 
     fetchJobs();
   }, []);
+
+
+  useEffect(() => {
+    async function fetchReview() {
+      const response = await api.get("/review-page/my-review-page");
+      console.log(response.data);
+      setReview(response.data);
+    }
+
+    fetchReview();
+  }, []);
+
+
 
   return (
     <>
@@ -65,6 +88,15 @@ export function Home() {
         })}
       </div>
       <SectionTestemonials />
+      <div className="rounded-3xl overflow-hidden shadow-xl bg-white mx-4">
+        {review.map((e) => {
+          return (
+            <div>
+              <CardTestemonialsDetail description={e.description} />
+            </div>
+          );
+        })}
+      </div>
       <Faq />
       <Footer />
     </>
