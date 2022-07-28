@@ -119,6 +119,7 @@ export function Profile() {
             <div key={key.toString()}>
               {e.pilot && (
                 <CardJobDetail
+                  title={e.title}
                   owner={e.owner}
                   game={e.game}
                   description={e.description}

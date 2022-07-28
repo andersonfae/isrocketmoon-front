@@ -7,7 +7,8 @@ import { Hero } from "../Hero";
 import { Sectionjob } from "../../components/SectionJobs";
 import { SectionTestemonials } from "../../components/SectionTestemonials";
 import { Faq } from "../../components/FAQ/index";
-import { CardTestemonialsDetail } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsDetail";
+import { CardTestemonialsHome } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsHome/index";
+import { CardJobHome } from "../../components/Cards/CardJobs/CardJobHome";
 
 export function Home() {
   const [jobs, setJobs] = useState([
@@ -66,7 +67,7 @@ export function Home() {
               )}
 
               {!e.pilot && (
-                <CardJobDetail
+                <CardJobHome
                   owner={e.owner}
                   game={e.game}
                   description={e.description}
@@ -83,7 +84,7 @@ export function Home() {
         {review.map((e, key) => {
           return (
             <div key={key.toString()} className="flex space-y-2.5 flex-col">
-              <CardTestemonialsDetail description={e.description} />
+              <CardTestemonialsHome description={e.description} />
             </div>
           );
         })}

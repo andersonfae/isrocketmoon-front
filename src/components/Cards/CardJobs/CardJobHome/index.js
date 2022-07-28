@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function CardJobDetail(props) {
+export function CardJobHome(props) {
   return (
     <>
       <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4">
@@ -23,22 +23,12 @@ export function CardJobDetail(props) {
             </p>
             <p className="flex-1 text-base text-gray-900">${props.amount}</p>
           </div>
-          {props.pilot ? <h3>Pilot:{props.pilot} </h3> : null}
+          {props.pilot ? <h3>Pilot :{props.pilot} </h3> : null}
         </div>
-        <div className="flex w-full text-center space-x-2">
-          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
-            <p className="text-base font-bold text-center text-white uppercase">
-              Apply
-            </p>
-          </div>
-          <Link
-            to={`/jobs/edit/${props.id}`}
-            className="flex-auto border rounded border-purple-700 w-full py-2.5"
-          >
-            <span className="text-base font-bold text-center text-purple-700 uppercase">
-              Edit Job
-            </span>
-          </Link>
+        <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
+          <p className="text-base font-bold text-center text-white uppercase">
+            Apply
+          </p>
         </div>
       </div>
     </>

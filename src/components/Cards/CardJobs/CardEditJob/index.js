@@ -67,16 +67,15 @@ export function CardEditJob() {
       <div className="flex flex-col space-y-8 items-center justify-start mx-4 p-8 bg-white rounded mt-48">
         <div className="flex flex-col space-y-8 items-start justify-start w-full">
           <p className="w-full text-xl leading-9 text-gray-900 font-serif">
-            Editing PROPS HERE TITLE
+            {form.title}
           </p>
           <div className="flex flex-col space-y-5 items-start justify-start w-full">
             <input
               className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
               type="text"
               name="title"
-              value={form.title}
               onChange={handleChange}
-              placeholder="Describe your job here"
+              placeholder="Edit your title job, here."
             ></input>
             <input
               className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"

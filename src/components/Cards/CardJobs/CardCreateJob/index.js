@@ -45,8 +45,8 @@ export function CardJob() {
             <input
               className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black "
               type="text"
-              name="description"
-              value={form.description}
+              name="title"
+              value={form.title}
               onChange={handleChange}
               placeholder="Title for the job (Ex.: How to hunt in ...)"
             ></input>
