@@ -6,7 +6,7 @@ export function CardJobDetail(props) {
       <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4">
         <div className="flex flex-col space-y-2.5 items-start justify-start">
           <h2 className="w-full text-xl leading-9 text-gray-900 font-serif">
-            Elo Job twice a week
+            Elo Job twice
           </h2>
         </div>
         <p className="text-base text-gray-900">{props.description}</p>
