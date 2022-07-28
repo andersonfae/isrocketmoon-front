@@ -22,11 +22,14 @@ export function Home() {
     ,
   ]);
 
+
   const [review, setReview] = useState([
     {
       description: "",
     },
   ]);
+
+
 
   useEffect(() => {
     async function fetchJobs() {
@@ -38,6 +41,7 @@ export function Home() {
     fetchJobs();
   }, []);
 
+
   useEffect(() => {
     async function fetchReview() {
       const response = await api.get("/review-page/my-review-page");
@@ -47,6 +51,8 @@ export function Home() {
 
     fetchReview();
   }, []);
+
+
 
   return (
     <>
