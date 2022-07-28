@@ -10,3 +10,7 @@
 #hero {
   @apply overflow-hidden;
 }
+
+#testimonials {
+  background: url("../src/images/shooting-star.png") no-repeat top center;
+}
