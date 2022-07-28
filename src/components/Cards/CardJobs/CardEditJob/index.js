@@ -60,7 +60,7 @@ export function CardEditJob() {
               Edit your Job
             </h5>
             <p className="text-gray-700 text-xs mb-4">
-              🚀 You are 3 fields away to get a Professional Gamer!
+              🚀 You are 3 fields away to get a Professional Gamer!!
             </p>
             <form onSubmit={handleSubmit}>
               <label>Title for the job</label>
