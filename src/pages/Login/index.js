@@ -39,9 +39,9 @@ export function Login() {
     <>
       <Navbar />
       <div className="bg-black py-28 px-4 h-full">
-        <div className="p-4 max-w-sm bg-white shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700 rounded">
+        <div className="p-8 max-w-sm bg-white shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700 rounded">
           <form onSubmit={handleSubmit} className="space-y-6" action="#">
-            <h5 className="text-4xl font-medium text-gray-900 dark:text-white">
+            <h5 className="text-4xl text-black font-serif mb-8">
               Welcome back ;){" "}
             </h5>
             <div>
@@ -51,7 +51,7 @@ export function Login() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="border-b-2 border-black text-black text-base w-full p-2.5 text-black"
+                className="border-b border-black text-black text-base w-full py-2.5 text-black"
                 placeholder="E-mail"
               />
             </div>
@@ -63,7 +63,7 @@ export function Login() {
                 value={form.password}
                 onChange={handleChange}
                 placeholder="Password"
-                className="border-b-2 border-black text-black text-base w-full p-2.5 text-black"
+                className="border-b border-black text-black text-base w-full py-2.5 text-black"
               />
             </div>
             <div className="flex items-start">
