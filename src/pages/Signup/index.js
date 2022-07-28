@@ -3,6 +3,7 @@ import { api } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
+import { Link } from "react-router-dom";
 import Photo from "../../images/upload-photo.png";
 
 export function Signup() {
@@ -58,15 +59,14 @@ export function Signup() {
   return (
     <>
       <Navbar />
-      <div className="bg-black pb-12 pt-20 px-4">
-        <div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="bg-black pb-12 px-4">
+        <div className="p-8 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700 mt-48">
           <form onSubmit={handleSubmit} className="space-y-6" action="#">
-            <h5 className="text-4xl text-black">Create an account</h5>
+            <h5 className="text-4xl text-black font-serif mb-8">
+              Create an account
+            </h5>
             <div>
-              <label
-                htmlFor="formName"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              ></label>
+              <label htmlFor="formName" className=""></label>
               <input
                 id="formName"
                 name="name"
@@ -77,14 +77,24 @@ export function Signup() {
                 placeholder="Name"
               />
             </div>
-            <label htmlFor="formImg">
-              <img src={Photo} alt="logo" className="" />
-            </label>
-            <input type="file" id="formImg" onChange={handleImage} />
-            <label
-              htmlFor="formNickname"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            ></label>
+            <div className="flex">
+              <label htmlFor="formImg">
+                <img src={Photo} alt="avatar" className="" />
+              </label>
+              <input
+                type="file"
+                id="formImg"
+                onChange={handleImage}
+                className="text-sm text-grey-500
+            file:mr-5 file:py-2 file:px-6
+            file:rounded-full file:border-1 file:border-purple-600
+            file:text-sm file:font-medium
+            file:text-purple-600
+            hover:file:cursor-pointer hover:file:bg-amber-50
+            hover:file:text-amber-700"
+              />
+            </div>
+            <label htmlFor="formNickname" className=""></label>
 
             <input
               id="formNickname"
@@ -95,10 +105,7 @@ export function Signup() {
               className="border-b border-black text-black text-base w-full text-black"
               placeholder="Nickname"
             />
-            <label
-              htmlFor="formDescription"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            ></label>
+            <label htmlFor="formDescription" className=""></label>
 
             <input
               id="formDescription"
@@ -110,10 +117,7 @@ export function Signup() {
               placeholder="Describe yourself in 140 Characters"
               maxLength="140"
             />
-            <label
-              htmlFor="formEmail"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            ></label>
+            <label htmlFor="formEmail" className=""></label>
             <input
               id="formEmail"
               name="email"
@@ -123,15 +127,13 @@ export function Signup() {
               className="border-b border-black text-black text-base w-full text-black"
               placeholder="E-mail"
             />
-            <label
-              htmlFor="formLocation"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+
+            <label htmlFor="formLocation" className="">
               <select
                 id="formLocation"
                 onChange={handleChange}
                 name="location"
-                className="border-b border-black text-black text-base w-full text-black"
+                className="border-b border-black text-black text-base w-full text-black mt-6"
               >
                 <option value="North America">North America</option>
                 <option value="South America">South America</option>
@@ -140,24 +142,18 @@ export function Signup() {
                 <option value="Asia">Asia</option>
               </select>
             </label>
-            <label
-              htmlFor="formTypeOfUser"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
+            <label htmlFor="formTypeOfUser" className="">
               <select
                 id="formTypeOfUser"
                 onChange={handleChange}
                 name="typeOfUser"
-                className="border-b border-black text-black text-base w-full text-black"
+                className="border-b border-black text-black text-base w-full text-black mt-6"
               >
                 <option value="Pilot">Pilot</option>
                 <option value="Owner">Owner</option>
               </select>
             </label>
-            <label
-              htmlFor="formPassword"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            ></label>
+            <label htmlFor="formPassword" className=""></label>
             <input
               id="formPassword"
               name="password"
@@ -167,10 +163,7 @@ export function Signup() {
               className="border-b border-black text-black text-base w-full text-black"
               placeholder="Password"
             />
-            <label
-              htmlFor="formConfirmPassword"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            ></label>
+            <label htmlFor="formConfirmPassword" className=""></label>
             <input
               id="formConfirmPassword"
               type="password"
@@ -183,10 +176,24 @@ export function Signup() {
             <button
               onClick={handleSubmit}
               type="submit"
-              className="flex shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-base py-3 px-16 rounded ml-10"
+              className="shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-base py-3 px-16 rounded w-full text-center"
             >
               Create Account
             </button>
+            <div className="text-base text-black text-center">
+              Already have an account?{" "}
+              <Link
+                to={"/login"}
+                className="text-blue-700 hover:underline dark:text-blue-500"
+              >
+                <button
+                  onClick={handleSubmit}
+                  className="underline text-base text-black"
+                >
+                  Log in
+                </button>
+              </Link>
+            </div>
           </form>
         </div>
       </div>

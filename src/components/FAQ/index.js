@@ -10,7 +10,7 @@ export function Faq() {
     <div>
       <div>
         <div
-          className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-32 text-white"
+          className="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 text-white"
           id="faq"
         >
           <h4 className="text-4xl mb-6 mt-16 text-white font-serif lg:text-center">
