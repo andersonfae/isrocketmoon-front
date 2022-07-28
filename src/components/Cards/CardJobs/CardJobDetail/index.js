@@ -7,7 +7,6 @@ import { Link, useParams } from "react-router-dom";
 export function CardJobDetail(props) {
   const { loggedInUser } = useContext(AuthContext);
 
-  console.log(props);
   return (
     <>
       <div className="flex justify-center bg-black">
