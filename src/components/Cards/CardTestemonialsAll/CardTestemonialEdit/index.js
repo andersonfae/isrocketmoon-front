@@ -47,7 +47,17 @@ export function CardTestemonialEdit() {
       console.log(error);
     }
   }
-  console.log(form);
+
+  async function handleDeleteReview() {
+    try {
+      await api.delete(`/review-page/delete/${reviewId}`);
+
+      navigate("/profile");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <div className="flex justify-center bg-black">
@@ -80,6 +90,13 @@ export function CardTestemonialEdit() {
               className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
             >
               EDIT MY REVIEW!
+            </button>
+            <button
+              type="submit"
+              onClick={handleDeleteReview}
+              className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            >
+              Delete review!
             </button>
           </div>
         </div>
