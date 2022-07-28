@@ -16,7 +16,10 @@ export function Navbar() {
   }
 
   return (
-    <div className="flex items-center justify-between bg-black text-white pt-8 pl-4 pr-4 pb-9">
+    <header
+      id="header"
+      className="flex items-center justify-between fixed text-white pt-8 pl-4 pr-4 pb-9 z-50 right-0 left-0 top-0"
+    >
       <a href="/">
         <span className="flex items-center text-4xl uppercase font-logo">
           Rocket M{" "}
@@ -32,10 +35,10 @@ export function Navbar() {
         </span>
       </a>
       <nav>
-        <section className="MOBILE-MENU flex lg:hidden bg-black items-center">
+        <section className="MOBILE-MENU flex lg:hidden items-center">
           <Link to={"/signup"}>
             {" "}
-            <button className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded mr-16">
+            <button className="flex shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded mr-16">
               {" "}
               Sign Up
             </button>
@@ -68,7 +71,7 @@ export function Navbar() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] text-4xl">
+            <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] text-5xl font-serif">
               <li className="pt-14 pb-10">
                 <a href="/">Home</a>
               </li>
@@ -130,13 +133,13 @@ export function Navbar() {
         top: 0;
         left: 0;
         background: black;
-        z-index: 10;
+        z-index: 50;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
       }
     `}</style>
-    </div>
+    </header>
   );
 }
