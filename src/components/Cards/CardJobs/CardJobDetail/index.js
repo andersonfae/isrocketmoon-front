@@ -7,8 +7,7 @@ import { Link, useParams } from "react-router-dom";
 export function CardJobDetail(props) {
   const { loggedInUser } = useContext(AuthContext);
 
-  const { jobsId } = useParams();
-
+  console.log(props);
   return (
     <>
       <div className="flex justify-center bg-black">
@@ -18,9 +17,9 @@ export function CardJobDetail(props) {
               Elo Job twice a week
             </h5>
             <p className="text-gray-700 text-base mb-4">{props.description}</p>
-            <h3>Game :{props.game}</h3>
-            <h3>Price :{props.amount} </h3>
-            <h3>Requester :{props.pilot} </h3>
+            <h3>Game:{props.game}</h3>
+            <h3>Price:{props.amount} </h3>
+            {props.pilot ? <h3>Pilot :{props.pilot} </h3> : null}
 
             <button
               type="button"
@@ -28,7 +27,7 @@ export function CardJobDetail(props) {
             >
               APPLY
             </button>
-            <Link to={`/jobs/edit/${jobsId}`}>
+            <Link to={`/jobs/edit/${props.id}`}>
               {" "}
               <button
                 type="button"

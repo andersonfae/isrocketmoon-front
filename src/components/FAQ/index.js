@@ -72,9 +72,9 @@ export function Faq() {
                 <ul className="">
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use
-                      all payments. You can pay from Paypal, Payoneer, Master
-                      Card, Debit Card.
+                      If you want to learn how to level up faster, earn new
+                      items, collect victories and play better and better, you
+                      need Rocket Moon.
                     </p>
                   </li>
                 </ul>
@@ -202,9 +202,9 @@ export function Faq() {
                 <ul>
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use
-                      all payments. You can pay from Paypal, Payoneer, Master
-                      Card, Debit Card.
+                      Yup. We have the most modern and secure payment systems
+                      today. All the most important information in your profile
+                      is protected by end-to-end encryption.
                     </p>
                   </li>
                 </ul>
@@ -214,7 +214,7 @@ export function Faq() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
-                    How to recover password?
+                    Where is a field to write feedback about rocketmoon?
                   </h2>
                 </div>
                 <button
@@ -265,9 +265,9 @@ export function Faq() {
                 <ul>
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use
-                      all payments. You can pay from Paypal, Payoneer, Master
-                      Card, Debit Card.
+                      First, create your account. Then log in and be directed to
+                      your profile page. Tap "Create Review Page" and write
+                      whatever comes to your mind. =)
                     </p>
                   </li>
                 </ul>

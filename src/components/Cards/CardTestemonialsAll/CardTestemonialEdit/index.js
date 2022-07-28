@@ -40,7 +40,7 @@ export function CardTestemonialEdit() {
 
       api.patch("/review-page/edit/:reviewId", clone);
 
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
