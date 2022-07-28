@@ -85,17 +85,6 @@ export function Profile() {
     }
   }
 
-  async function handleDeleteJob() {
-    try {
-      await api.delete("/jobs/disable-profile");
-      localStorage.removeItem("loggedInUser");
-
-      navigate("/profile");
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   return (
     <>
       <Navbar />
@@ -177,14 +166,14 @@ export function Profile() {
             return (
               <div>
                 <CardTestemonialsDetail description={e.description} />
+                <Link to={`/reviewpage/edit/${e._id}`}>
+                  <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
+                    Edit Profile
+                  </button>
+                </Link>
               </div>
             );
           })}
-          <Link to={`/reviewpage/edit/${user._id}`}>
-            <button className="flex text-black underline text-xs pt-5 pr-[0.625rem] rounded mr-16 mt-1 mx-5 justify-end  ">
-              Edit Profile
-            </button>
-          </Link>
         </div>
         <Footer />
       </div>

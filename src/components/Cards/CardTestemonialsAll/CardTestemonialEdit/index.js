@@ -14,7 +14,7 @@ export function CardTestemonialEdit() {
     async function fetchTestemonial() {
       const response = await api.get(`/review-page/${reviewId}`);
       console.log(response.data);
-      setForm(...response.data);
+      setForm(response.data);
     }
 
     fetchTestemonial();
