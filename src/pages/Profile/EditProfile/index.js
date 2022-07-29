@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from "../../../components/Footer/index";
 import { Navbar } from "../../../components/Navbar/index";
 import { AuthContext } from "../../../contexts/authContext";
-import Photo from "../../../images/upload-photo.png";
 import { Ball } from "../../../components/GradientBall";
+import Avatar from "boring-avatars";
 
 export function EditProfile() {
   const { loggedInUser } = useContext(AuthContext);
@@ -95,7 +95,12 @@ export function EditProfile() {
             </div>
             <div className="flex">
               <label htmlFor="formImg">
-                <img src={Photo} alt="avatar" className="" />
+                <Avatar
+                  size={50}
+                  name={"Rocketmoon"}
+                  variant="beam"
+                  colors={["#000", "#B356FF"]}
+                />
               </label>
               <input
                 type="file"

@@ -6,8 +6,8 @@ import { Navbar } from "../../components/Navbar/index";
 import { Link } from "react-router-dom";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 import { CardTestemonialsDetail } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsDetail";
-import Photo from "../../images/upload-photo.png";
 import { Ball } from "../../components/GradientBall";
+import Avatar from "boring-avatars";
 
 export function Profile() {
   const [user, setUser] = useState({
@@ -81,11 +81,16 @@ export function Profile() {
     <>
       <Navbar />
       <div className="relative px-5 pt-24 pb-5 bg-white rounded-lg mt-48 mx-4 mb-7">
-        <img
-          className="rounded-full w-36 h-36 -top-12 left-5 absolute"
-          src={Photo}
-          alt="Photoimg"
-        />
+        <figure className="rounded-full w-36 h-36 -top-12 left-5 absolute">
+          {" "}
+          <Avatar
+            size={150}
+            name={user.name}
+            variant="beam"
+            colors={["#000", "#B356FF"]}
+          />
+        </figure>
+
         <div className="flex flex-col space-y-2.5 items-start justify-start w-full pb-5 border-b border-gray-300">
           <div className="flex flex-col space-y-1 items-start justify-start">
             <Link to={`/user/update-profile/${user._id}`}>

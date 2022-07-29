@@ -1,7 +1,6 @@
 import { Footer } from "../../components/Footer";
 import { Ball } from "../../components/GradientBall";
 import { Navbar } from "../../components/Navbar";
-import Floating from "../../images/floatingBoard.png";
 import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail/index";
 import { CardJobHome } from "../../components/Cards/CardJobs/CardJobHome/index";
 import { api } from "../../api/api";
