@@ -7,7 +7,7 @@ export function CardJobHome(props) {
   console.log(loggedInUser);
   return (
     <>
-      <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4">
+      <div className="flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded">
         <div className="flex flex-col space-y-2.5 items-start justify-start">
           <h2 className="w-full text-xl leading-9 text-gray-900 font-serif">
             {props.description}
