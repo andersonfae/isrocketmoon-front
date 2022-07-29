@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { api } from "../../../../api/api";
 
 export function CardJobDetail(props) {
   return (
@@ -27,9 +28,14 @@ export function CardJobDetail(props) {
         </div>
         <div className="flex w-full text-center space-x-2">
           <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
-            <p className="text-base font-bold text-center text-white uppercase">
+            <button
+              onClick={async () => {
+                await api.get(`/jobs/pilot/${props.id}`);
+              }}
+              className="text-base font-bold text-white uppercase"
+            >
               Apply
-            </p>
+            </button>
           </div>
           <Link
             to={`/jobs/edit/${props.id}`}

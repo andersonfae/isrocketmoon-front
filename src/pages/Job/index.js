@@ -70,7 +70,7 @@ export function Job() {
       <p className="text-xl leading-9 text-white mx-4 mt-4 font-serif">
         See all the jobs{" "}
       </p>
-      <div>
+      <div className="mx-4">
         {loggedInUser && (
           <>
             {jobs.map((e, key) => {
