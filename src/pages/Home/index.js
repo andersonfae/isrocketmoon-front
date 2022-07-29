@@ -54,7 +54,7 @@ export function Home() {
       <Navbar />
       <Hero />
       <Sectionjob />
-      <div>
+      <div className="lg:flex-row lg:flex lg:space-x-8 mx-4">
         {loggedInUser && (
           <>
             {jobs

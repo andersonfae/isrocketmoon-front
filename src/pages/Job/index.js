@@ -42,35 +42,34 @@ export function Job() {
   return (
     <>
       <Navbar />
-      <img
-        src={Floating}
-        alt="floatingBoard"
-        className="fixed top-10 right-15 -z-10"
-      />
-      <div className="inline-flex space-x-8 items-center justify-start p-8 mt-48 mx-4">
+
+      <div
+        id="job-stats"
+        className="flex space-x-8 justify-start p-8 mt-48 mx-4 align-top"
+      >
         <div className="inline-flex flex-col space-y-2.5 items-start justify-start flex-1">
-          <p className="w-full text-xl leading-10 text-center text-white">
+          <p className="w-full text-xl leading-10 text-center text-white font-serif">
             ${Math.floor(Math.random(100, 500) * 100) + 100}
           </p>
-          <p className="w-full text-sm text-center text-white">
+          <p className="w-full text-xs text-center text-white">
             IN JOBS TRADED
           </p>
         </div>
         <div className="inline-flex flex-col space-y-2.5 items-start justify-start flex-1">
-          <p className="w-full text-xl leading-10 text-center text-white">
+          <p className="w-full text-xl leading-10 text-center text-white font-serif">
             {user.length}
           </p>
-          <p className="w-full text-sm text-center text-white">GAMERS</p>
+          <p className="w-full text-xs text-center text-white">GAMERS</p>
         </div>
         <div className="inline-flex flex-col space-y-2.5 items-start justify-start flex-1">
-          <p className="w-full text-xl leading-10 text-center text-white">
+          <p className="w-full text-xl leading-10 text-center text-white font-serif">
             {jobs.length}
           </p>
-          <p className="w-full text-sm text-center text-white">ACTIVE JOBS</p>
+          <p className="w-full text-xs text-center text-white">ACTIVE JOBS</p>
         </div>
       </div>
       <p className="text-xl leading-9 text-white mx-4 mt-4 font-serif">
-        See jobs on{" "}
+        See all the jobs{" "}
       </p>
       <div>
         {loggedInUser && (
