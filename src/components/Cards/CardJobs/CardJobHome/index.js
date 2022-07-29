@@ -30,12 +30,12 @@ export function CardJobHome(props) {
         </div>
 
         {loggedInUser.user.typeOfUser !== "Owner" && (
-          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
+          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 text-center">
             <button
               onClick={async () => {
                 await api.get(`/jobs/pilot/${props.id}`);
               }}
-              className="text-base font-bold text-center text-white uppercase"
+              className="text-base font-bold text-white uppercase"
             >
               Apply
             </button>

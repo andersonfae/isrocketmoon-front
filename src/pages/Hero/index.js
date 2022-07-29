@@ -15,8 +15,8 @@ export function Hero() {
             </span>
           </h1>
           <h2 className="text-base py-7">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint.
+            The first platform that provides resilient gamers to help you
+            advance to the next level in any game.
           </h2>
           <section className="flex justify-center">
             <Link to={"/jobs"}>
