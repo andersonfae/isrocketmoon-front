@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
+import { Link } from "react-router-dom";
 
 export function CardJobHome(props) {
   const { loggedInUser } = useContext(AuthContext);
@@ -31,14 +32,16 @@ export function CardJobHome(props) {
 
         {loggedInUser.user.typeOfUser !== "Owner" && (
           <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
-            <button
-              onClick={async () => {
-                await api.get(`/jobs/pilot/${props.id}`);
-              }}
-              className="text-base font-bold text-center text-white uppercase"
-            >
-              Apply
-            </button>
+            <Link to={"/profile"}>
+              <button
+                onClick={async () => {
+                  await api.get(`/jobs/pilot/${props.id}`);
+                }}
+                className="text-base font-bold text-center text-white uppercase"
+              >
+                Apply
+              </button>
+            </Link>
           </div>
         )}
       </div>

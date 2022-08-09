@@ -15,8 +15,16 @@ export function Hero() {
             </span>
           </h1>
           <h2 className="text-base py-7">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint.
+            <p>
+              There are two types of users:
+              <br /> - Owner: Player who wants help to level up, get more items
+              or even play better.
+            </p>{" "}
+            <br />
+            <p>
+              - Pilot: Professional player who sells services to gain level,
+              play better, pick up items and etc.
+            </p>
           </h2>
           <section className="flex justify-center">
             <Link to={"/jobs"}>

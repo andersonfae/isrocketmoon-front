@@ -122,6 +122,7 @@ export function Profile() {
       </h2>
       <div>
         {jobs.map((e, key) => {
+          console.log(jobs);
           return (
             <div key={key.toString()}>
               {e.pilot && (
