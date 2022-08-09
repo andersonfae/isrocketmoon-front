@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
-import { Link } from "react-router-dom";
 
 export function CardJobHome(props) {
   const { loggedInUser } = useContext(AuthContext);

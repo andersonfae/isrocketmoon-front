@@ -129,7 +129,7 @@ export function Profile() {
         {jobs.map((e, key) => {
           console.log(jobs);
           return (
-            <div key={key.toString()}>
+            <div className="my-4" key={key.toString()}>
               {e.pilot && (
                 <CardJobDetail
                   title={e.title}
