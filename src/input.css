@@ -14,3 +14,8 @@
 #testimonials {
   background: url("../src/images/shooting-star.png") no-repeat top center;
 }
+
+#job-stats {
+  background: url("../src/images/floatingBoard.png") no-repeat center center;
+  @apply h-56;
+}

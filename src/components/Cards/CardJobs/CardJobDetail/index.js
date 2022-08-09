@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { api } from "../../../../api/api";
 
 export function CardJobDetail(props) {
   return (
     <>
-      <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4 mt-10">
+      <div className="flex flex-col space-y-8 p-8 bg-white rounded mx-4">
         <div className="flex flex-col space-y-2.5 items-start justify-start">
           <h2 className="w-full text-xl leading-9 text-gray-900 font-serif">
             {props.description}
@@ -27,9 +28,14 @@ export function CardJobDetail(props) {
         </div>
         <div className="flex w-full text-center space-x-2">
           <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
-            <p className="text-base font-bold text-center text-white uppercase">
+            <button
+              onClick={async () => {
+                await api.get(`/jobs/pilot/${props.id}`);
+              }}
+              className="text-base font-bold text-white uppercase"
+            >
               Apply
-            </p>
+            </button>
           </div>
           <Link
             to={`/jobs/edit/${props.id}`}

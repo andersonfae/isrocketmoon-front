@@ -5,7 +5,7 @@ export function Hero() {
     <>
       <div
         id="hero"
-        className="px-4 z-10 relative h-full pt-60 pb-96 text-white text-center"
+        className="px-4 z-10 relative h-screen pt-60 pb-96 text-white text-center"
       >
         <div className="z-50 relative">
           <h1 className="text-4xl font-serif leading-tight">
@@ -15,16 +15,8 @@ export function Hero() {
             </span>
           </h1>
           <h2 className="text-base py-7">
-            <p>
-              There are two types of users:
-              <br /> - Owner: Player who wants help to level up, get more items
-              or even play better.
-            </p>{" "}
-            <br />
-            <p>
-              - Pilot: Professional player who sells services to gain level,
-              play better, pick up items and etc.
-            </p>
+            The first platform that provides resilient gamers to help you
+            advance to the next level in any game.
           </h2>
           <section className="flex justify-center">
             <Link to={"/jobs"}>
@@ -45,7 +37,7 @@ export function Hero() {
         ></div>
       </div>
 
-      <div className="flex flex-col absolute bottom-5 left-1/2 mt-44 z-40">
+      <div className="flex flex-col absolute bottom-5 left-1/2 mt-44 z-40 lg:invisible">
         <button
           type="button"
           className="w-3 h-3 rounded-full bg-white"

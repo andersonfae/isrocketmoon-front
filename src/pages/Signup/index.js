@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
 import { Link } from "react-router-dom";
-import Photo from "../../images/upload-photo.png";
 import { Ball } from "../../components/GradientBall";
+import Avatar from "boring-avatars";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -80,7 +80,12 @@ export function Signup() {
             </div>
             <div className="flex">
               <label htmlFor="formImg">
-                <img src={Photo} alt="avatar" className="" />
+                <Avatar
+                  size={50}
+                  name={"Rocketmoon"}
+                  variant="beam"
+                  colors={["#000", "#B356FF"]}
+                />
               </label>
               <input
                 type="file"

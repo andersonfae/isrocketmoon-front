@@ -8,7 +8,7 @@ export function CardJobHome(props) {
   console.log(loggedInUser);
   return (
     <>
-      <div className="inline-flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded mx-4">
+      <div className="flex flex-col space-y-8 items-start justify-start p-8 bg-white rounded">
         <div className="flex flex-col space-y-2.5 items-start justify-start">
           <h2 className="w-full text-xl leading-9 text-gray-900 font-serif">
             {props.description}
@@ -31,17 +31,15 @@ export function CardJobHome(props) {
         </div>
 
         {loggedInUser.user.typeOfUser !== "Owner" && (
-          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 ">
-            <Link to={"/profile"}>
-              <button
-                onClick={async () => {
-                  await api.get(`/jobs/pilot/${props.id}`);
-                }}
-                className="text-base font-bold text-center text-white uppercase"
-              >
-                Apply
-              </button>
-            </Link>
+          <div className="flex-auto bg-purple-700 rounded w-full py-2.5 text-center">
+            <button
+              onClick={async () => {
+                await api.get(`/jobs/pilot/${props.id}`);
+              }}
+              className="text-base font-bold text-white uppercase"
+            >
+              Apply
+            </button>
           </div>
         )}
       </div>
