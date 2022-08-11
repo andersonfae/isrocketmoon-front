@@ -127,7 +127,7 @@ export function Profile() {
       </h2>
       <div>
         {jobs.map((e, key) => {
-          console.log(jobs);
+          console.log(e.pilot);
           return (
             <div className="my-4" key={key.toString()}>
               {e.pilot && (
@@ -155,6 +155,7 @@ export function Profile() {
           );
         })}
       </div>
+
       <h2 className="text-4xl text-white font-serif lg:text-center mx-4 mb-8 mt-20">
         👌🏽 Your testimonials
       </h2>

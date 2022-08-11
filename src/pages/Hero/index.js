@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { i18next } from "../../translate/i18n";
 
 export function Hero() {
   return (
@@ -9,7 +10,7 @@ export function Hero() {
       >
         <div className="z-50 relative">
           <h1 className="text-4xl font-serif leading-tight">
-            Connecting the jobs with the{" "}
+            {i18next.t("titles.appH1")}
             <span className="bg-[#1CBDF9] shadow-lg shadow-cyan-500/50">
               best gamers
             </span>
