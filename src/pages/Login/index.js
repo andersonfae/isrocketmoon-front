@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Footer } from "../../components/Footer";
 import { Navbar } from "../../components/Navbar/index";
 import { Ball } from "../../components/GradientBall";
+import { i18next } from "../../translate/i18n";
 
 export function Login() {
   const [form, setForm] = useState({
@@ -43,7 +44,7 @@ export function Login() {
         <div className="p-8 max-w-sm bg-white shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700 rounded">
           <form onSubmit={handleSubmit} className="space-y-6" action="#">
             <h5 className="text-4xl text-black font-serif mb-8">
-              Welcome back ;){" "}
+              {i18next.t("pageLogin.h5Welcome")}{" "}
             </h5>
             <div>
               <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"></label>
@@ -53,7 +54,7 @@ export function Login() {
                 value={form.email}
                 onChange={handleChange}
                 className="border-b border-black text-black text-base w-full py-2.5 text-black"
-                placeholder="E-mail"
+                placeholder={i18next.t("pageLogin.placeEmail")}
               />
             </div>
             <div>
@@ -63,7 +64,7 @@ export function Login() {
                 name="password"
                 value={form.password}
                 onChange={handleChange}
-                placeholder="Password"
+                placeholder={i18next.t("pageLogin.placePassword")}
                 className="border-b border-black text-black text-base w-full py-2.5 text-black"
               />
             </div>
@@ -81,27 +82,27 @@ export function Login() {
                   htmlFor="remember"
                   className="ml-2 text-xs font-medium text-gray-900 dark:text-gray-300"
                 >
-                  Remember me
+                  {i18next.t("pageLogin.labelRemember")}
                 </label>
               </div>
               <a href="/" className="ml-auto text-xs text-black underline">
-                Lost Password?
+                {i18next.t("pageLogin.aLost")}
               </a>
             </div>
             <button
               type="submit"
               className="w-full text-white bg-[#8718E1] hover:bg-[#8718E1] focus:ring-4 uppercase focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Login
+              {i18next.t("pageLogin.buttonLogin")}
             </button>
             <div className="text-base text-black text-center">
-              Don't have an account?{" "}
+              {i18next.t("pageLogin.divDont")}{" "}
               <Link
                 to={"/signup"}
                 className="text-blue-700 hover:underline dark:text-blue-500"
               >
                 <button className="underline text-base text-black">
-                  Sign up for free
+                  {i18next.t("pageLogin.buttonSignup")}
                 </button>
               </Link>
             </div>

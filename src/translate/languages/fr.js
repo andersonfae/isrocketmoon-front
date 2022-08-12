@@ -101,6 +101,16 @@ const messages = {
         pHour: "Fabriqué en 🚀 104 heures avec ☕️ café et 🔥 hi-energy.",
         pMagic: "Développeurs magiques",
       },
+      pageLogin: {
+        h5Welcome: "Content de te revoir ;)",
+        placeEmail: "E-mail",
+        placePassword: "Mot de passe",
+        labelRemember: "Souviens-toi de moi",
+        aLost: "Mot de passe perdu?",
+        buttonLogin: "Connexion",
+        divDont: "Vous n'avez pas de compte ?",
+        buttonSignup: "Inscription gratuite",
+      },
     },
   },
 };
