@@ -99,6 +99,16 @@ const messages = {
         pHour: "Made in 🚀 104 hours with ☕️ coffee and 🔥 hi-energy.",
         pMagic: "Magic Developers",
       },
+      pageLogin: {
+        h5Welcome: "Welcome back ;)",
+        placeEmail: "E-mail",
+        placePassword: "Password",
+        labelRemember: "Remember me",
+        aLost: "Lost Password?",
+        buttonLogin: "Login",
+        divDont: "Don't have an account?",
+        buttonSignup: "Sign up for free",
+      },
     },
   },
 };
