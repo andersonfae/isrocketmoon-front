@@ -8,6 +8,7 @@ import { CardJobDetail } from "../../components/Cards/CardJobs/CardJobDetail";
 import { CardTestemonialsDetail } from "../../components/Cards/CardTestemonialsAll/CardTestemonialsDetail";
 import { Ball } from "../../components/GradientBall";
 import Avatar from "boring-avatars";
+import { i18next } from "../../translate/i18n";
 
 export function Profile() {
   const [user, setUser] = useState({
@@ -95,7 +96,7 @@ export function Profile() {
           <div className="flex flex-col space-y-1 items-start justify-start">
             <Link to={`/user/update-profile/${user._id}`}>
               <p className="absolute right-5 top-5 text-black underline text-xs">
-                Edit profile
+                {i18next.t("pageProfile.pEditProfile")}
               </p>
             </Link>
             <p className="text-xl leading-9 w-full">{user.name}</p>
@@ -114,21 +115,22 @@ export function Profile() {
             className="flex-auto bg-purple-700 rounded py-2.5 text-center"
           >
             <p className="text-base font-bold text-center text-white uppercase">
-              Post Testimonials
+              {i18next.t("pageProfile.pTestimonials")}
             </p>
           </Link>
           <p className="text-xs underline text-red-700" onClick={handleDelete}>
-            Delete account
+            {i18next.t("pageProfile.pDelete")}
           </p>
         </div>
       </div>
       <h2 className="text-xl text-white font-serif lg:text-center mx-4 mb-8 mt-14">
-        👇🏼 Your jobs on the road
+        {i18next.t("pageProfile.h2YourJobs")}
       </h2>
       <div>
         {jobs.map((e, key) => {
+          console.log(e.pilot);
           return (
-            <div key={key.toString()}>
+            <div className="my-4" key={key.toString()}>
               {e.pilot && (
                 <CardJobDetail
                   title={e.title}
@@ -154,8 +156,9 @@ export function Profile() {
           );
         })}
       </div>
+
       <h2 className="text-4xl text-white font-serif lg:text-center mx-4 mb-8 mt-20">
-        👌🏽 Your testimonials
+        {i18next.t("pageProfile.h2Testimonials")}
       </h2>
       <div className="">
         {review.map((e, key) => {

@@ -1,6 +1,7 @@
 import { Footer } from "../../components/Footer";
 import { Ball } from "../../components/GradientBall";
 import { Navbar } from "../../components/Navbar";
+import { i18next } from "../../translate/i18n";
 
 export function Credits() {
   return (
@@ -8,7 +9,7 @@ export function Credits() {
       <Navbar />
       <div className="inline-flex flex-col space-y-12 items-start justify-start mt-48 mx-4">
         <p className="text-4xl leading-10 text-white font-serif">
-          Made in 🚀 104 hours with ☕️ coffee and 🔥 hi-energy.
+          {i18next.t("credits.pHour")}
         </p>
         <div className="inline-flex space-x-16 items-start justify-start">
           <div className="inline-flex flex-col space-y-6 items-start justify-start flex-1">
@@ -41,7 +42,7 @@ export function Credits() {
             </div>
           </div>
           <p className="flex-1 text-xl leading-9 text-white">
-            Magic Developers
+            {i18next.t("credits.pMagic")}
           </p>
         </div>
       </div>
