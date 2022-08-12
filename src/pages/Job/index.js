@@ -6,6 +6,7 @@ import { CardJobHome } from "../../components/Cards/CardJobs/CardJobHome/index";
 import { api } from "../../api/api";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../contexts/authContext";
+import { i18next } from "../../translate/i18n";
 
 export function Job() {
   const { loggedInUser } = useContext(AuthContext);
@@ -51,24 +52,28 @@ export function Job() {
             ${Math.floor(Math.random(100, 500) * 100) + 100}
           </p>
           <p className="w-full text-xs text-center text-white">
-            IN JOBS TRADED
+            {i18next.t("pageSeeJobs.pJobsTraded")}
           </p>
         </div>
         <div className="inline-flex flex-col space-y-2.5 items-start justify-start flex-1">
           <p className="w-full text-xl leading-10 text-center text-white font-serif">
             {user.length}
           </p>
-          <p className="w-full text-xs text-center text-white">GAMERS</p>
+          <p className="w-full text-xs text-center text-white">
+            {i18next.t("pageSeeJobs.pGamers")}
+          </p>
         </div>
         <div className="inline-flex flex-col space-y-2.5 items-start justify-start flex-1">
           <p className="w-full text-xl leading-10 text-center text-white font-serif">
             {jobs.length}
           </p>
-          <p className="w-full text-xs text-center text-white">ACTIVE JOBS</p>
+          <p className="w-full text-xs text-center text-white">
+            {i18next.t("pageSeeJobs.pActiveJobs")}
+          </p>
         </div>
       </div>
       <p className="text-xl leading-9 text-white mx-4 mt-4 font-serif">
-        See all the jobs{" "}
+        {i18next.t("pageSeeJobs.pSeeAllTheJobs")}{" "}
       </p>
       <div className="mx-4">
         {loggedInUser && (

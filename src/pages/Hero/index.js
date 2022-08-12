@@ -12,22 +12,19 @@ export function Hero() {
           <h1 className="text-4xl font-serif leading-tight">
             {i18next.t("titles.appH1")}
             <span className="bg-[#1CBDF9] shadow-lg shadow-cyan-500/50">
-              best gamers
+              {i18next.t("titles.appSpan")}
             </span>
           </h1>
-          <h2 className="text-base py-7">
-            The first platform that provides resilient gamers to help you
-            advance to the next level in any game.
-          </h2>
+          <h2 className="text-base py-7">{i18next.t("description.appH2")}</h2>
           <section className="flex justify-center">
             <Link to={"/jobs"}>
               <button className="flex shadow border border-[#8718E1] bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-base py-2.5 px-4 rounded uppercase">
-                See Jobs
+                {i18next.t("buttons.seeJobs")}
               </button>
             </Link>
             <Link to={"/jobs/createjob"}>
               <button className="flex shadow border border-white focus:shadow-outline focus:outline-none text-white text-base py-2.5 px-4 rounded uppercase ml-2.5">
-                Post a Job
+                {i18next.t("buttons.postAJob")}
               </button>
             </Link>
           </section>

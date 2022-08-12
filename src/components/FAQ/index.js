@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { i18next } from "../../translate/i18n";
 
 export function Faq() {
   const [box1, setBox1] = useState(false);
@@ -21,7 +22,7 @@ export function Faq() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
-                    Why should I use your service?
+                    {i18next.t("faq.appH2q1")}
                   </h2>
                 </div>
                 <button
@@ -72,9 +73,7 @@ export function Faq() {
                 <ul className="">
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to learn how to level up faster, earn new
-                      items, collect victories and play better and better, you
-                      need Rocket Moon.
+                      {i18next.t("faq.appPa1")}
                     </p>
                   </li>
                 </ul>
@@ -84,7 +83,7 @@ export function Faq() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
-                    What payment method I can use?
+                    {i18next.t("faq.appH2q2")}
                   </h2>
                 </div>
                 <button
@@ -137,9 +136,7 @@ export function Faq() {
                 <ul>
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use
-                      all payments. You can pay from Paypal, Payoneer, Master
-                      Card, Debit Card.
+                      {i18next.t("faq.appPa2")}
                     </p>
                   </li>
                 </ul>
@@ -149,7 +146,7 @@ export function Faq() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
-                    Is your service safe to use?
+                    {i18next.t("faq.appH2q3")}
                   </h2>
                 </div>
                 <button
@@ -202,9 +199,7 @@ export function Faq() {
                 <ul>
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      Yup. We have the most modern and secure payment systems
-                      today. All the most important information in your profile
-                      is protected by end-to-end encryption.
+                      {i18next.t("faq.appPa3")}
                     </p>
                   </li>
                 </ul>
@@ -214,7 +209,7 @@ export function Faq() {
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-base font-semibold leading-none text-gray-800">
-                    Where is a field to write feedback about rocketmoon?
+                    {i18next.t("faq.appH2q4")}
                   </h2>
                 </div>
                 <button
@@ -265,9 +260,7 @@ export function Faq() {
                 <ul>
                   <li>
                     <p className="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      First, create your account. Then log in and be directed to
-                      your profile page. Tap "Create Review Page" and write
-                      whatever comes to your mind. =)
+                      {i18next.t("faq.appPa4")}
                     </p>
                   </li>
                 </ul>

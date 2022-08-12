@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import Moon from "../../images/logo-moon-wobg.svg";
 import { AuthContext } from "../../contexts/authContext";
 import { useNavigate, Link } from "react-router-dom";
+import { i18next } from "../../translate/i18n";
 
 export function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -9,6 +10,14 @@ export function Navbar() {
   const { loggedInUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const I18N_STORAGE_KEY = "i18nextLng";
+
+  const [language] = useState(localStorage.getItem(I18N_STORAGE_KEY));
+
+  const handleSelectChange = (event) => {
+    window.localStorage.setItem(I18N_STORAGE_KEY, event.target.value);
+    window.location = window.location;
+  };
 
   function handleLogOut() {
     localStorage.removeItem("loggedInUser");
@@ -40,9 +49,10 @@ export function Navbar() {
             {" "}
             <button className="flex shadow bg-[#8718E1] hover:bg-[#8718E1] focus:shadow-outline focus:outline-none text-white text-xs py-2.5 px-4 rounded mr-16 uppercase">
               {" "}
-              Sign Up
+              {i18next.t("navbar.signUpHome")}
             </button>
           </Link>
+
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
@@ -73,26 +83,48 @@ export function Navbar() {
             </div>
             <ul className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px] text-5xl font-serif">
               <li className="pt-14 pb-10">
-                <a href="/">Home</a>
+                <a href="/">{i18next.t("navbar.home")}</a>
               </li>
+
               <li className="pb-10">
-                <a href="/jobs">Jobs</a>
+                <a href="/jobs">{i18next.t("navbar.jobs")}</a>
               </li>
               <span className="pb-10">
                 {loggedInUser ? (
-                  <a href="/profile">Your profile</a>
+                  <a href="/profile">{i18next.t("navbar.yourProf")}</a>
                 ) : (
-                  <a href="/login">Login</a>
+                  <a href="/login">{i18next.t("navbar.login")}</a>
                 )}
               </span>
               <li className="flex shadow bg-purple-600 hover:bg-purple-600 focus:shadow-outline focus:outline-none text-white py-2.5 px-4 rounded">
                 {loggedInUser ? (
                   <a href="/" onClick={handleLogOut}>
-                    Logout
+                    {i18next.t("navbar.logout")}
                   </a>
                 ) : (
-                  <a href="/signup">Sign Up</a>
+                  <a href="/signup">{i18next.t("navbar.signUpHamb")}</a>
                 )}
+              </li>
+              <br />
+              <li>
+                <select
+                  onChange={handleSelectChange}
+                  value={language}
+                  className="bg-black"
+                >
+                  <option
+                    className="text-gray-900 dark:text-gray-400"
+                    value="en-US"
+                  >
+                    EN
+                  </option>
+                  <option
+                    className="text-gray-900 dark:text-gray-400"
+                    value="fr-FR"
+                  >
+                    FR
+                  </option>
+                </select>
               </li>
             </ul>
           </div>

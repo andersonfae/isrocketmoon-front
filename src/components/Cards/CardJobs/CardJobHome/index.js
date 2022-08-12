@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../contexts/authContext";
 import { api } from "../../../../api/api";
+import { i18next } from "../../../../translate/i18n";
 
 export function CardJobHome(props) {
   const { loggedInUser } = useContext(AuthContext);
@@ -17,13 +18,13 @@ export function CardJobHome(props) {
         <div className="flex flex-col items-start justify-start w-full">
           <div className="inline-flex space-x-2.5 items-start justify-start w-full py-2.5 border-b border-black justify-between">
             <p className="opacity-60 flex-1 text-base tracking-wider text-gray-900 uppercase">
-              Game
+              {i18next.t("cardJobHome.pGame")}
             </p>
             <p className="flex-1 text-base text-gray-900">{props.game}</p>
           </div>
           <div className="inline-flex space-x-2.5 items-start justify-start w-full py-2.5 border-b border-black">
             <p className="opacity-60 flex-1 text-base tracking-wider text-gray-900 uppercase">
-              price
+              {i18next.t("cardJobHome.pPrice")}
             </p>
             <p className="flex-1 text-base text-gray-900">${props.amount}</p>
           </div>
@@ -37,7 +38,7 @@ export function CardJobHome(props) {
               }}
               className="text-base font-bold text-white uppercase"
             >
-              Apply
+              {i18next.t("cardJobHome.buttonApply")}
             </button>
           </div>
         )}

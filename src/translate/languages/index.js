@@ -1,11 +1,9 @@
 import { messages as englishMessages } from "./en";
-// import { messages as portugueseMessages } from "./en";
-// import { messages as francaisMessages } from "./en";
+import { messages as francaisMessages } from "./fr";
 
 const messages = {
   ...englishMessages,
-  //   ...portugueseMessages,
-  //   ...francaisMessages,
+  ...francaisMessages,
 };
 
 export { messages };

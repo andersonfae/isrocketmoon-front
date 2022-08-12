@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../../../../api/api";
 import { useNavigate } from "react-router-dom";
+import { i18next } from "../../../../translate/i18n";
 
 export function CardJob() {
   const [form, setForm] = useState({
@@ -33,10 +34,10 @@ export function CardJob() {
       <div className="inline-flex flex-col space-y-8 items-center justify-start p-8 bg-white rounded mt-48 mx-4">
         <div className="flex flex-col space-y-8 items-start justify-start w-full">
           <p className="w-full text-4xl leading-9 text-gray-900 font-serif">
-            Post a job
+            {i18next.t("cardCreateJob.pPost")}
           </p>
           <p className="text-xs text-gray-900">
-            🚀 You are 3 fields away to get a Professional Gamer!
+            {i18next.t("cardCreateJob.pGamer")}
           </p>
           <div className="flex flex-col space-y-5 w-full">
             <input
@@ -45,7 +46,7 @@ export function CardJob() {
               name="title"
               value={form.title}
               onChange={handleChange}
-              placeholder="Title for the job (Ex.: How to hunt in ...)"
+              placeholder={i18next.t("cardCreateJob.placeTitle")}
             ></input>
             <input
               className="flex-1 text-base text-gray-900 w-full py-2.5 border-b border-black"
@@ -53,7 +54,7 @@ export function CardJob() {
               name="description"
               value={form.description}
               onChange={handleChange}
-              placeholder="Describe all details for the gamer."
+              placeholder={i18next.t("cardCreateJob.placeDescribe")}
             ></input>
             <label htmlFor="formGame">
               <select id="formGame" name="game" onChange={handleChange}>
@@ -69,7 +70,7 @@ export function CardJob() {
               name="amount"
               value={form.amount}
               onChange={handleChange}
-              placeholder="Price ($)"
+              placeholder={i18next.t("cardCreateJob.placePrice")}
             ></input>
           </div>
         </div>
@@ -80,7 +81,7 @@ export function CardJob() {
         >
           <div className="flex items-center justify-center flex-1 px-4 py-2.5 bg-purple-700 rounded">
             <p className="text-base font-bold text-center text-white uppercase">
-              SEND TO THE MOON!
+              {i18next.t("cardCreateJob.pSend")}
             </p>
           </div>
         </div>
